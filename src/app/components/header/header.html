@@ -1,1 +1,70 @@
-<p>header works!</p>
+<!-- Navigation Header -->
+<nav class="navbar navbar-expand-lg fixed-top" [class.scrolled]="isScrolled">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#home" (click)="navigateTo('#home')">
+      <span class="brand-text">Pierre</span>
+      <span class="brand-accent">Dev</span>
+    </a>
+
+    <!-- Mobile menu button -->
+    <button 
+      class="navbar-toggler" 
+      type="button"
+      [class.active]="isMobileMenuOpen"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <!-- Navigation menu -->
+    <div class="navbar-collapse" [class.show]="isMobileMenuOpen">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item" *ngFor="let item of navigationItems">
+          <a 
+            class="nav-link" 
+            [href]="item.href"
+            (click)="navigateTo(item.href)">
+            {{ translate('nav.' + item.key) }}
+          </a>
+        </li>
+      </ul>
+
+      <!-- Action buttons -->
+      <div class="navbar-actions">
+        <!-- Language toggle -->
+        <button 
+          class="btn btn-outline action-btn"
+          (click)="toggleLanguage()"
+          [title]="translate('header.language')"
+          aria-label="Toggle language">
+          <i class="fas fa-globe"></i>
+          <span class="ms-1">{{ currentLanguage.toUpperCase() }}</span>
+        </button>
+
+        <!-- Theme toggle -->
+        <button 
+          class="btn btn-outline action-btn"
+          (click)="toggleTheme()"
+          [title]="translate('header.theme')"
+          aria-label="Toggle theme">
+          <i class="fas" [class.fa-moon]="!isDarkTheme" [class.fa-sun]="isDarkTheme"></i>
+        </button>
+
+        <!-- PDF Export -->
+        <button 
+          class="btn btn-primary action-btn"
+          (click)="exportToPdf()"
+          [title]="translate('header.export')"
+          aria-label="Export to PDF">
+          <i class="fas fa-download"></i>
+          <span class="d-none d-md-inline ms-1">PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

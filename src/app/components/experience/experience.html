@@ -1,1 +1,60 @@
-<p>experience works!</p>
+<!-- Experience Section -->
+<div class="container">
+  <div class="section-header">
+    <h2 class="section-title">{{ translate('experience.title') }}</h2>
+    <div class="section-line"></div>
+    <p class="section-subtitle">{{ translate('experience.subtitle') }}</p>
+  </div>
+
+  <div class="experience-timeline">
+    <div class="timeline-item" *ngFor="let exp of experiences; let i = index" [class.animate]="true">
+      <div class="timeline-marker">
+        <div class="timeline-dot"></div>
+        <div class="timeline-line" *ngIf="i < experiences.length - 1"></div>
+      </div>
+      
+      <div class="timeline-content">
+        <div class="experience-card">
+          <div class="experience-header">
+            <h3 class="experience-position">{{ exp.position }}</h3>
+            <div class="experience-period">
+              <span class="start-date">{{ formatDate(exp.startDate) }}</span>
+              <span class="separator"> - </span>
+              <span class="end-date">
+                {{ exp.endDate ? formatDate(exp.endDate) : getCurrentText() }}
+              </span>
+            </div>
+          </div>
+          
+          <div class="experience-company">
+            <i class="fas fa-building company-icon"></i>
+            <span>{{ exp.company }}</span>
+          </div>
+          
+          <p class="experience-description">{{ exp.description }}</p>
+          
+          <div class="experience-achievements" *ngIf="exp.achievements.length > 0">
+            <h4 class="achievements-title">{{ translate('experience.achievements') }}</h4>
+            <ul class="achievements-list">
+              <li *ngFor="let achievement of exp.achievements" class="achievement-item">
+                <i class="fas fa-check-circle achievement-icon"></i>
+                {{ achievement }}
+              </li>
+            </ul>
+          </div>
+          
+          <div class="experience-technologies" *ngIf="exp.technologies.length > 0">
+            <h4 class="technologies-title">{{ translate('experience.technologies') }}</h4>
+            <div class="technologies-list">
+              <span 
+                *ngFor="let tech of exp.technologies" 
+                class="technology-tag">
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

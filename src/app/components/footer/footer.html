@@ -1,1 +1,108 @@
-<p>footer works!</p>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="row">
+        <!-- About Section -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="footer-section">
+            <h3 class="footer-title" *ngIf="personalInfo">{{ personalInfo.firstName }} {{ personalInfo.lastName }}</h3>
+            <p class="footer-description">{{ translate('footer.description') }}</p>
+            
+            <!-- Social Links -->
+            <div class="footer-social" *ngIf="personalInfo?.socialLinks">
+              <h4 class="social-title">{{ translate('footer.social') }}</h4>
+              <div class="social-links">
+                <a 
+                  *ngFor="let social of personalInfo!.socialLinks"
+                  [href]="social.url" 
+                  target="_blank"
+                  class="social-link"
+                  [title]="social.platform">
+                  <i [class]="social.icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-2 col-md-6 mb-4">
+          <div class="footer-section">
+            <h4 class="footer-subtitle">{{ translate('footer.quickLinks') }}</h4>
+            <ul class="footer-links">
+              <li *ngFor="let link of quickLinks">
+                <a [href]="link.href" (click)="scrollToSection(link.href)">
+                  {{ translate('nav.' + link.key) }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="footer-section">
+            <h4 class="footer-subtitle">{{ translate('footer.contact') }}</h4>
+            <div class="contact-info" *ngIf="personalInfo">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a [href]="'mailto:' + personalInfo.email">{{ personalInfo.email }}</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <a [href]="'tel:' + personalInfo.phone">{{ personalInfo.phone }}</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>{{ personalInfo.location }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technologies -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="footer-section">
+            <h4 class="footer-subtitle">Technologies</h4>
+            <div class="tech-badges">
+              <span class="tech-badge">Angular</span>
+              <span class="tech-badge">.NET Core</span>
+              <span class="tech-badge">Blazor</span>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">TypeScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="copyright">
+            © {{ currentYear }} {{ personalInfo?.firstName || 'Pierre' }} {{ personalInfo?.lastName || 'JULIO' }}. 
+            {{ translate('footer.rights') }}
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="made-with">
+            {{ translate('footer.madeWith') }} 
+            <i class="fas fa-heart heart-icon"></i> 
+            {{ translate('footer.and') }} 
+            <span class="tech-highlight">Angular</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating elements for visual appeal -->
+  <div class="footer-decoration">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+  </div>
+</footer>

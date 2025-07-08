@@ -1,1 +1,84 @@
-<p>skills works!</p>
+<!-- Skills Section -->
+<div class="container">
+  <div class="section-header">
+    <h2 class="section-title">{{ translate('skills.title') }}</h2>
+    <div class="section-line"></div>
+    <p class="section-subtitle">{{ translate('skills.subtitle') }}</p>
+  </div>
+
+  <div class="skills-container">
+    <div class="row">
+      <div 
+        class="col-lg-4 col-md-6 mb-4" 
+        *ngFor="let category of skillCategories; let i = index">
+        <div class="skill-category" [style.animation-delay.s]="i * 0.2">
+          <div class="category-header">
+            <h3 class="category-title">{{ category.title }}</h3>
+            <div class="category-icon">
+              <i [class]="getCategoryIcon(category.key)"></i>
+            </div>
+          </div>
+          
+          <div class="skills-list">
+            <div 
+              class="skill-item" 
+              *ngFor="let skill of category.skills; let j = index"
+              [style.animation-delay.s]="(i * 0.2) + (j * 0.1)">
+              
+              <div class="skill-header">
+                <div class="skill-info">
+                  <i [class]="skill.icon" class="skill-icon" *ngIf="skill.icon"></i>
+                  <span class="skill-name">{{ skill.name }}</span>
+                </div>
+                <div class="skill-level">
+                  <span class="level-text">{{ getSkillLevelText(skill.level) }}</span>
+                  <span class="level-percentage">{{ skill.level }}%</span>
+                </div>
+              </div>
+              
+              <div class="skill-progress">
+                <div class="progress-track">
+                  <div 
+                    class="progress-fill" 
+                    [style.width.%]="skill.level"
+                    [style.animation-delay.s]="(i * 0.2) + (j * 0.1) + 0.5">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Summary -->
+  <div class="skills-summary">
+    <div class="row text-center">
+      <div class="col-md-3 col-6">
+        <div class="summary-item">
+          <div class="summary-number">7+</div>
+          <div class="summary-label">Langages</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="summary-item">
+          <div class="summary-number">5+</div>
+          <div class="summary-label">Frameworks</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="summary-item">
+          <div class="summary-number">10+</div>
+          <div class="summary-label">Outils</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="summary-item">
+          <div class="summary-number">5+</div>
+          <div class="summary-label">Années</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

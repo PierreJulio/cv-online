@@ -1,0 +1,473 @@
+// Hero Section Styles
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  overflow: hidden;
+  padding: 120px 0 80px;
+
+  :host-context(.dark-theme) & {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  }
+
+  // Animated background elements
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(var(--primary-color-rgb), 0.1) 0%, transparent 70%);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -20%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(var(--secondary-color-rgb), 0.08) 0%, transparent 70%);
+    animation: float 8s ease-in-out infinite reverse;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: slideUp 1s ease-out;
+}
+
+.hero-text {
+  margin-bottom: 3rem;
+
+  .hero-greeting {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  }
+
+  .hero-name {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 2rem;
+    }
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+
+    @media (max-width: 576px) {
+      font-size: 1rem;
+    }
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1s forwards;
+
+    @media (max-width: 576px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 1.2s forwards;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    text-align: center;
+
+    .stat-number {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 1.4s forwards;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
+
+  .btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius-lg);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    &:hover::before {
+      left: 100%;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(var(--primary-color-rgb), 0.3);
+    }
+  }
+
+  .btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+
+    &:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      background: rgba(var(--primary-color-rgb), 0.05);
+    }
+  }
+}
+
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: slideInRight 1s ease-out 0.5s forwards;
+
+  .profile-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    max-width: 100%;
+
+    @media (max-width: 768px) {
+      width: 300px;
+      height: 300px;
+    }
+
+    @media (max-width: 576px) {
+      width: 250px;
+      height: 250px;
+    }
+
+    // Floating background shapes
+    &::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      right: -40px;
+      bottom: -40px;
+      background: linear-gradient(-45deg, var(--secondary-color), var(--accent-color));
+      border-radius: 50%;
+      opacity: 0.05;
+      animation: pulse 6s ease-in-out infinite reverse;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--bg-primary);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  // Floating icons
+  .floating-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: var(--bg-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+
+    &:nth-child(2) {
+      top: 10%;
+      right: 10%;
+      animation-delay: -0.5s;
+    }
+
+    &:nth-child(3) {
+      bottom: 20%;
+      left: 5%;
+      animation-delay: -1s;
+    }
+
+    &:nth-child(4) {
+      top: 30%;
+      left: -5%;
+      animation-delay: -1.5s;
+    }
+
+    &:nth-child(5) {
+      bottom: 10%;
+      right: 15%;
+      animation-delay: -2s;
+    }
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 2s forwards;
+
+  .scroll-text {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+  }
+
+  .scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--text-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounce 2s infinite;
+
+    i {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.15;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+// Responsive Design
+@media (max-width: 991px) {
+  .hero {
+    padding: 100px 0 60px;
+    text-align: center;
+
+    .hero-image {
+      margin-top: 3rem;
+      order: 2;
+    }
+
+    .hero-content {
+      order: 1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 80px 0 40px;
+  }
+
+  .hero-text {
+    margin-bottom: 2rem;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 60px 0 30px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}

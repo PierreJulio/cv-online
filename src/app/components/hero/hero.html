@@ -1,1 +1,81 @@
-<p>hero works!</p>
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Hero Content -->
+      <div class="col-lg-6">
+        <div class="hero-content">
+          <div class="hero-text">
+            <span class="hero-greeting">{{ translate('hero.greeting') }}</span>
+            <h1 class="hero-name" *ngIf="personalInfo">{{ personalInfo.firstName }} {{ personalInfo.lastName }}</h1>
+            <h2 class="hero-title">{{ translate('hero.title') }}</h2>
+            <p class="hero-subtitle">{{ translate('hero.subtitle') }}</p>
+            <p class="hero-description" *ngIf="personalInfo">{{ personalInfo.summary }}</p>
+          </div>
+
+          <!-- Hero Stats -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">{{ yearsOfExperience }}+</span>
+              <span class="stat-label">{{ translate('hero.yearsExperience') }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">{{ projectsCompleted }}+</span>
+              <span class="stat-label">{{ translate('hero.projectsCompleted') }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">{{ clientsSatisfied }}+</span>
+              <span class="stat-label">{{ translate('hero.clientsSatisfied') }}</span>
+            </div>
+          </div>
+
+          <!-- Hero Buttons -->
+          <div class="hero-buttons">
+            <button class="btn btn-primary" (click)="scrollToContact()">
+              <i class="fas fa-envelope"></i>
+              {{ translate('hero.contactMe') }}
+            </button>
+            <button class="btn btn-outline" (click)="downloadCV()">
+              <i class="fas fa-download"></i>
+              {{ translate('hero.downloadCV') }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="col-lg-6">
+        <div class="hero-image">
+          <div class="profile-container">
+            <img 
+              [src]="personalInfo?.profileImage || 'assets/images/profile-placeholder.svg'" 
+              [alt]="personalInfo?.firstName + ' ' + personalInfo?.lastName"
+              class="profile-image">
+            
+            <!-- Floating Tech Icons -->
+            <div class="floating-icon">
+              <i class="fab fa-angular"></i>
+            </div>
+            <div class="floating-icon">
+              <i class="fab fa-node-js"></i>
+            </div>
+            <div class="floating-icon">
+              <i class="fab fa-js"></i>
+            </div>
+            <div class="floating-icon">
+              <i class="fab fa-react"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <span class="scroll-text">{{ translate('hero.scrollDown') }}</span>
+    <div class="scroll-arrow">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </div>
+</section>
