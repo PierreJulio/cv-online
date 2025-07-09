@@ -17,9 +17,8 @@ export class Hero implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
   
   personalInfo: PersonalInfo | null = null;
-  yearsOfExperience = 2;
+  yearsOfExperience = 3;
   projectsCompleted = 15;
-  clientsSatisfied = 10;
 
   constructor(
     private dataService: DataService,
@@ -51,7 +50,8 @@ export class Hero implements OnInit, OnDestroy {
 
   private calculateYearsOfExperience(): void {
     // Pierre a commencé son premier stage en janvier 2020
-    const startYear = 2020;
+    // Ajusté pour refléter 3 ans d'expérience pertinente
+    const startYear = 2022;
     const currentYear = new Date().getFullYear();
     this.yearsOfExperience = currentYear - startYear;
   }

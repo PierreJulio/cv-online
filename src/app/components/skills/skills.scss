@@ -141,10 +141,9 @@
   height: 100%;
   background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   border-radius: 3px;
-  width: 0;
-  animation: fillProgress 1.5s ease-out forwards;
   position: relative;
   overflow: hidden;
+  transition: width 1.5s ease-out;
 
   &::after {
     content: '';
@@ -221,12 +220,12 @@
   }
 }
 
-@keyframes fillProgress {
+@keyframes fillWidth {
   from {
     width: 0;
   }
   to {
-    width: var(--target-width);
+    width: inherit;
   }
 }
 

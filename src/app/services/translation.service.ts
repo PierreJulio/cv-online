@@ -52,7 +52,7 @@ export class TranslationService {
       about: {
         title: 'À propos de moi',
         subtitle: 'Découvrez mon parcours',
-        description: 'Développeur passionné avec plus de 5 années d\'expérience dans le développement web. Je me spécialise dans la création d\'applications modernes, performantes et user-friendly.',
+        description: 'Développeur passionné avec plus de 3 années d\'expérience dans le développement web. Je me spécialise dans la création d\'applications modernes, performantes et user-friendly.',
         age: 'Âge',
         location: 'Localisation',
         email: 'Email',
@@ -200,7 +200,7 @@ export class TranslationService {
       about: {
         title: 'About Me',
         subtitle: 'Discover my journey',
-        description: 'Passionate developer with over 5 years of experience in web development. I specialize in creating modern, performant and user-friendly applications.',
+        description: 'Passionate developer with over 3 years of experience in web development. I specialize in creating modern, performant and user-friendly applications.',
         age: 'Age',
         location: 'Location',
         email: 'Email',

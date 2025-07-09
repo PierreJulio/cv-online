@@ -79,7 +79,7 @@ export class DataService {
     email: 'pierre.julio2024@gmail.com',
     phone: '+33 7 82 14 12 85',
     location: 'Labège, France',
-    dateOfBirth: '1998-01-15',
+    dateOfBirth: '2001-11-20',
     summary: 'Développeur Full-Stack passionné par les technologies web modernes et la sécurité IAM. Spécialisé en .NET Core, Blazor, React et Angular avec une expertise en solutions d\'authentification et d\'autorisation.',
     profileImage: 'assets/images/pierre-julio-profile.jpg',
     socialLinks: [
@@ -169,7 +169,7 @@ export class DataService {
       description: 'Application de gestion des engagements avec support multi-participants et chat en temps réel.',
       image: 'assets/images/project-placeholder.svg',
       technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-      liveUrl: 'https://pactify-app.com',
+      liveUrl: 'https://pactify-kappa.vercel.app/',
       githubUrl: 'https://github.com/pierre-julio/pactify',
       features: [
         'Création de pactes avec termes spécifiques',
@@ -184,7 +184,6 @@ export class DataService {
       description: 'Application développée en alternance pour la digitalisation complète d\'une pommeraie.',
       image: 'assets/images/project-placeholder.svg',
       technologies: ['Blazor', '.NET Core', 'SQL Server', 'API REST'],
-      githubUrl: 'https://github.com/pierre-julio/pommeraie-app',
       features: [
         'Gestion complète de la pommeraie',
         'Intégration d\'API REST',
@@ -196,35 +195,35 @@ export class DataService {
 
   private skillsSubject = new BehaviorSubject<Skill[]>([
     // Langages & Frameworks
-    { name: '.NET Core', level: 95, category: 'Frontend', icon: 'fas fa-code' },
-    { name: 'Blazor', level: 95, category: 'Frontend', icon: 'fas fa-fire' },
-    { name: 'React', level: 85, category: 'Frontend', icon: 'fab fa-react' },
-    { name: 'Next.js', level: 85, category: 'Frontend', icon: 'fas fa-arrow-right' },
-    { name: 'Angular', level: 85, category: 'Frontend', icon: 'fab fa-angular' },
+    { name: '.NET Core', level: 100, category: 'Frontend', icon: 'fas fa-code' },
+    { name: 'Blazor', level: 100, category: 'Frontend', icon: 'fas fa-fire' },
+    { name: 'React', level: 70, category: 'Frontend', icon: 'fab fa-react' },
+    { name: 'Next.js', level: 75, category: 'Frontend', icon: 'fas fa-arrow-right' },
+    { name: 'Angular', level: 80, category: 'Frontend', icon: 'fab fa-angular' },
     { name: 'Node.js', level: 75, category: 'Backend', icon: 'fab fa-node-js' },
-    { name: 'Flutter', level: 75, category: 'Frontend', icon: 'fas fa-mobile-alt' },
+    { name: 'Flutter', level: 50, category: 'Frontend', icon: 'fas fa-mobile-alt' },
 
     // Bases de données
-    { name: 'SQL Server SSMS', level: 95, category: 'Backend', icon: 'fas fa-database' },
-    { name: 'Firebase', level: 85, category: 'Backend', icon: 'fas fa-fire' },
-    { name: 'Entity Framework', level: 85, category: 'Backend', icon: 'fas fa-sitemap' },
+    { name: 'SQL Server SSMS', level: 90, category: 'Backend', icon: 'fas fa-database' },
+    { name: 'Firebase', level: 60, category: 'Backend', icon: 'fas fa-fire' },
+    { name: 'Entity Framework', level: 100, category: 'Backend', icon: 'fas fa-sitemap' },
 
     // Sécurité & IAM
-    { name: 'OAuth', level: 95, category: 'Backend', icon: 'fas fa-shield-alt' },
-    { name: 'OpenID Connect', level: 95, category: 'Backend', icon: 'fas fa-key' },
-    { name: 'SAML', level: 95, category: 'Backend', icon: 'fas fa-lock' },
-    { name: 'JWT', level: 85, category: 'Backend', icon: 'fas fa-certificate' },
+    { name: 'OAuth', level: 80, category: 'Backend', icon: 'fas fa-shield-alt' },
+    { name: 'OpenID Connect', level: 85, category: 'Backend', icon: 'fas fa-key' },
+    { name: 'SAML', level: 50, category: 'Backend', icon: 'fas fa-lock' },
+    { name: 'JWT', level: 100, category: 'Backend', icon: 'fas fa-certificate' },
 
     // Outils & Technologies
     { name: 'Docker', level: 85, category: 'Tools', icon: 'fab fa-docker' },
-    { name: 'Git', level: 95, category: 'Tools', icon: 'fab fa-git-alt' },
-    { name: 'GitHub', level: 95, category: 'Tools', icon: 'fab fa-github' },
-    { name: 'GitLab', level: 95, category: 'Tools', icon: 'fab fa-gitlab' },
-    { name: 'WordPress', level: 85, category: 'Tools', icon: 'fab fa-wordpress' },
-    { name: 'Elementor', level: 85, category: 'Tools', icon: 'fas fa-puzzle-piece' },
-    { name: 'API REST', level: 85, category: 'Backend', icon: 'fas fa-exchange-alt' },
-    { name: 'GraphQL', level: 85, category: 'Backend', icon: 'fas fa-project-diagram' },
-    { name: 'SEO', level: 75, category: 'Tools', icon: 'fas fa-search' }
+    { name: 'Git', level: 70, category: 'Tools', icon: 'fab fa-git-alt' },
+    { name: 'GitHub', level: 90, category: 'Tools', icon: 'fab fa-github' },
+    { name: 'GitLab', level: 40, category: 'Tools', icon: 'fab fa-gitlab' },
+    { name: 'WordPress', level: 80, category: 'Tools', icon: 'fab fa-wordpress' },
+    { name: 'Elementor', level: 80, category: 'Tools', icon: 'fas fa-puzzle-piece' },
+    { name: 'API REST', level: 100, category: 'Backend', icon: 'fas fa-exchange-alt' },
+    { name: 'GraphQL', level: 50, category: 'Backend', icon: 'fas fa-project-diagram' },
+    { name: 'SEO', level: 70, category: 'Tools', icon: 'fas fa-search' }
   ]);
 
   private educationSubject = new BehaviorSubject<Education[]>([
@@ -259,7 +258,7 @@ export class DataService {
 
   private languagesSubject = new BehaviorSubject<Language[]>([
     { name: 'Français', level: 'Langue maternelle', proficiency: 100 },
-    { name: 'Anglais', level: 'Avancé', proficiency: 85 }
+    { name: 'Anglais', level: 'Intermédiaire', proficiency: 60 }
   ]);
 
   constructor() {}

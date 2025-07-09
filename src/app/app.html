@@ -30,7 +30,21 @@
         
         <div class="about-content" *ngIf="personalInfo">
           <div class="row align-items-center">
-            <div class="col-lg-6">
+            <!-- Photo Profile -->
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="about-image">
+                <div class="profile-wrapper">
+                  <img 
+                    [src]="personalInfo.profileImage" 
+                    [alt]="personalInfo.firstName + ' ' + personalInfo.lastName"
+                    class="about-profile-image">
+                  <div class="profile-border"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- About Text -->
+            <div class="col-lg-4 col-md-6 mb-4">
               <div class="about-text">
                 <p class="lead">{{ personalInfo.summary }}</p>
                 <div class="about-details">
@@ -41,7 +55,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
+            
+            <!-- Languages -->
+            <div class="col-lg-4 col-md-12">
               <div class="languages-section">
                 <h4>{{ translate('about.languages') }}</h4>
                 <div class="language-item" *ngFor="let lang of languages">

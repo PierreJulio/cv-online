@@ -111,6 +111,70 @@
 
 // About Section Styles
 .about-content {
+  .about-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    .profile-wrapper {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      
+      @media (max-width: 768px) {
+        width: 240px;
+        height: 240px;
+      }
+
+      @media (max-width: 576px) {
+        width: 200px;
+        height: 200px;
+      }
+
+      .about-profile-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        object-fit: cover;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        :host-context(.dark-theme) & {
+          box-shadow: 0 15px 35px rgba(255, 255, 255, 0.1);
+          
+          &:hover {
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.15);
+          }
+        }
+      }
+
+      .profile-border {
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        bottom: -15px;
+        border-radius: 25px;
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        z-index: 1;
+        opacity: 0.1;
+        transition: all 0.3s ease;
+      }
+
+      &:hover .profile-border {
+        opacity: 0.2;
+        transform: scale(1.02);
+      }
+    }
+  }
+
   .about-text {
     .lead {
       font-size: 1.2rem;
@@ -264,10 +328,22 @@
 // Responsive Design
 @media (max-width: 991px) {
   .about-content {
-    .row {
-      .col-lg-6:first-child {
-        margin-bottom: 40px;
-      }
+    .about-image {
+      margin-bottom: 40px;
+    }
+    
+    .about-text {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .about-content {
+    text-align: center;
+    
+    .about-text {
+      text-align: left;
     }
   }
 }
