@@ -214,19 +214,78 @@
   }
 }
 
-.hero-image {
+.hero-visual {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   animation: slideInRight 1s ease-out 0.5s forwards;
+  min-height: 500px;
 
-  .profile-container {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    max-width: 100%;
+  @media (max-width: 768px) {
+    min-height: 400px;
+  }
+
+  @media (max-width: 576px) {
+    min-height: 300px;
+  }
+}
+
+.tech-showcase {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  max-width: 100%;
+
+  @media (max-width: 768px) {
+    width: 350px;
+    height: 350px;
+  }
+
+  @media (max-width: 576px) {
+    width: 280px;
+    height: 280px;
+  }
+
+  // Central orbit ring
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    border: 2px dashed var(--primary-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+    animation: rotate 30s linear infinite;
+
+    @media (max-width: 768px) {
+      width: 250px;
+      height: 250px;
+    }
+
+    @media (max-width: 576px) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  // Outer orbit ring
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 380px;
+    height: 380px;
+    border: 1px dotted var(--secondary-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+    animation: rotate 45s linear infinite reverse;
 
     @media (max-width: 768px) {
       width: 300px;
@@ -234,93 +293,173 @@
     }
 
     @media (max-width: 576px) {
-      width: 250px;
-      height: 250px;
+      width: 240px;
+      height: 240px;
+    }
+  }
+}
+
+.central-code {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+
+  .code-symbol {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'Fira Code', 'Monaco', 'Cascadia Code', monospace;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
     }
 
-    // Floating background shapes
-    &::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      right: -20px;
-      bottom: -20px;
-      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-      border-radius: 50%;
-      opacity: 0.1;
-      animation: pulse 4s ease-in-out infinite;
+    @media (max-width: 576px) {
+      font-size: 2rem;
     }
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: -40px;
-      left: -40px;
-      right: -40px;
-      bottom: -40px;
-      background: linear-gradient(-45deg, var(--secondary-color), var(--accent-color));
-      border-radius: 50%;
-      opacity: 0.05;
-      animation: pulse 6s ease-in-out infinite reverse;
+    .bracket {
+      color: var(--primary-color);
+      animation: pulse 2s ease-in-out infinite;
     }
 
-    .profile-image {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--bg-primary);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      position: relative;
-      z-index: 2;
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-      }
+    .code-text {
+      color: var(--text-primary);
+      margin: 0 0.2rem;
     }
   }
 
-  // Floating icons
-  .floating-icon {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: var(--bg-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-lg);
-    color: var(--primary-color);
+  .code-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    @media (max-width: 576px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.floating-icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 5;
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
     font-size: 1.5rem;
-    animation: float 3s ease-in-out infinite;
+  }
 
-    &:nth-child(2) {
-      top: 10%;
-      right: 10%;
-      animation-delay: -0.5s;
-    }
+  @media (max-width: 576px) {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
 
-    &:nth-child(3) {
-      bottom: 20%;
-      left: 5%;
-      animation-delay: -1s;
-    }
+  &:hover {
+    transform: scale(1.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
 
-    &:nth-child(4) {
-      top: 30%;
-      left: -5%;
-      animation-delay: -1.5s;
-    }
+  // Specific positioning and animations for each icon
+  &.icon-1 {
+    top: 10%;
+    right: 20%;
+    color: #dd0031;
+    animation: float 4s ease-in-out infinite, orbit1 20s linear infinite;
+  }
 
-    &:nth-child(5) {
-      bottom: 10%;
-      right: 15%;
-      animation-delay: -2s;
-    }
+  &.icon-2 {
+    top: 20%;
+    right: 5%;
+    color: #61dafb;
+    animation: float 4s ease-in-out infinite 0.5s, orbit2 25s linear infinite;
+  }
+
+  &.icon-3 {
+    top: 45%;
+    right: 0%;
+    color: #68a063;
+    animation: float 4s ease-in-out infinite 1s, orbit3 30s linear infinite;
+  }
+
+  &.icon-4 {
+    bottom: 25%;
+    right: 10%;
+    color: #f7df1e;
+    animation: float 4s ease-in-out infinite 1.5s, orbit4 22s linear infinite;
+  }
+
+  &.icon-5 {
+    bottom: 10%;
+    right: 30%;
+    color: #e34f26;
+    animation: float 4s ease-in-out infinite 2s, orbit5 28s linear infinite;
+  }
+
+  &.icon-6 {
+    bottom: 5%;
+    left: 30%;
+    color: #1572b6;
+    animation: float 4s ease-in-out infinite 2.5s, orbit6 24s linear infinite;
+  }
+
+  &.icon-7 {
+    bottom: 20%;
+    left: 10%;
+    color: #cc6699;
+    animation: float 4s ease-in-out infinite 3s, orbit7 26s linear infinite;
+  }
+
+  &.icon-8 {
+    left: 0%;
+    top: 45%;
+    color: #7952b3;
+    animation: float 4s ease-in-out infinite 3.5s, orbit8 32s linear infinite;
+  }
+
+  &.icon-9 {
+    top: 25%;
+    left: 5%;
+    color: #f05032;
+    animation: float 4s ease-in-out infinite 4s, orbit9 18s linear infinite;
+  }
+
+  &.icon-10 {
+    top: 15%;
+    left: 20%;
+    color: var(--text-primary);
+    animation: float 4s ease-in-out infinite 4.5s, orbit10 29s linear infinite;
+  }
+
+  &.icon-11 {
+    top: 35%;
+    left: 15%;
+    color: #0db7ed;
+    animation: float 4s ease-in-out infinite 5s, orbit11 27s linear infinite;
+  }
+
+  &.icon-12 {
+    bottom: 35%;
+    left: 25%;
+    color: var(--primary-color);
+    animation: float 4s ease-in-out infinite 5.5s, orbit12 21s linear infinite;
   }
 }
 
@@ -399,7 +538,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
   }
 }
 
@@ -426,19 +565,119 @@
   }
 }
 
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Orbital animations for floating icons
+@keyframes orbit1 {
+  0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+
+@keyframes orbit2 {
+  0% { transform: rotate(30deg) translateX(170px) rotate(-30deg); }
+  100% { transform: rotate(390deg) translateX(170px) rotate(-390deg); }
+}
+
+@keyframes orbit3 {
+  0% { transform: rotate(60deg) translateX(180px) rotate(-60deg); }
+  100% { transform: rotate(420deg) translateX(180px) rotate(-420deg); }
+}
+
+@keyframes orbit4 {
+  0% { transform: rotate(90deg) translateX(160px) rotate(-90deg); }
+  100% { transform: rotate(450deg) translateX(160px) rotate(-450deg); }
+}
+
+@keyframes orbit5 {
+  0% { transform: rotate(120deg) translateX(155px) rotate(-120deg); }
+  100% { transform: rotate(480deg) translateX(155px) rotate(-480deg); }
+}
+
+@keyframes orbit6 {
+  0% { transform: rotate(150deg) translateX(165px) rotate(-150deg); }
+  100% { transform: rotate(510deg) translateX(165px) rotate(-510deg); }
+}
+
+@keyframes orbit7 {
+  0% { transform: rotate(180deg) translateX(170px) rotate(-180deg); }
+  100% { transform: rotate(540deg) translateX(170px) rotate(-540deg); }
+}
+
+@keyframes orbit8 {
+  0% { transform: rotate(210deg) translateX(175px) rotate(-210deg); }
+  100% { transform: rotate(570deg) translateX(175px) rotate(-570deg); }
+}
+
+@keyframes orbit9 {
+  0% { transform: rotate(240deg) translateX(165px) rotate(-240deg); }
+  100% { transform: rotate(600deg) translateX(165px) rotate(-600deg); }
+}
+
+@keyframes orbit10 {
+  0% { transform: rotate(270deg) translateX(158px) rotate(-270deg); }
+  100% { transform: rotate(630deg) translateX(158px) rotate(-630deg); }
+}
+
+@keyframes orbit11 {
+  0% { transform: rotate(300deg) translateX(162px) rotate(-300deg); }
+  100% { transform: rotate(660deg) translateX(162px) rotate(-660deg); }
+}
+
+@keyframes orbit12 {
+  0% { transform: rotate(330deg) translateX(168px) rotate(-330deg); }
+  100% { transform: rotate(690deg) translateX(168px) rotate(-690deg); }
+}
+
 // Responsive Design
 @media (max-width: 991px) {
   .hero {
     padding: 100px 0 60px;
     text-align: center;
 
-    .hero-image {
+    .hero-visual {
       margin-top: 3rem;
       order: 2;
     }
 
     .hero-content {
       order: 1;
+    }
+
+    .tech-showcase {
+      width: 350px;
+      height: 350px;
+      
+      &::before {
+        width: 240px;
+        height: 240px;
+      }
+
+      &::after {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    .floating-icon {
+      width: 50px;
+      height: 50px;
+      font-size: 1.4rem;
     }
   }
 }
@@ -456,6 +695,41 @@
   .hero-stats {
     justify-content: center;
   }
+
+  .tech-showcase {
+    width: 300px;
+    height: 300px;
+    
+    &::before {
+      width: 200px;
+      height: 200px;
+    }
+
+    &::after {
+      width: 250px;
+      height: 250px;
+    }
+  }
+
+  .floating-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  // Reduce orbital radius on smaller screens
+  @keyframes orbit1 { 0% { transform: rotate(0deg) translateX(120px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); } }
+  @keyframes orbit2 { 0% { transform: rotate(30deg) translateX(130px) rotate(-30deg); } 100% { transform: rotate(390deg) translateX(130px) rotate(-390deg); } }
+  @keyframes orbit3 { 0% { transform: rotate(60deg) translateX(135px) rotate(-60deg); } 100% { transform: rotate(420deg) translateX(135px) rotate(-420deg); } }
+  @keyframes orbit4 { 0% { transform: rotate(90deg) translateX(125px) rotate(-90deg); } 100% { transform: rotate(450deg) translateX(125px) rotate(-450deg); } }
+  @keyframes orbit5 { 0% { transform: rotate(120deg) translateX(128px) rotate(-120deg); } 100% { transform: rotate(480deg) translateX(128px) rotate(-480deg); } }
+  @keyframes orbit6 { 0% { transform: rotate(150deg) translateX(132px) rotate(-150deg); } 100% { transform: rotate(510deg) translateX(132px) rotate(-510deg); } }
+  @keyframes orbit7 { 0% { transform: rotate(180deg) translateX(130px) rotate(-180deg); } 100% { transform: rotate(540deg) translateX(130px) rotate(-540deg); } }
+  @keyframes orbit8 { 0% { transform: rotate(210deg) translateX(134px) rotate(-210deg); } 100% { transform: rotate(570deg) translateX(134px) rotate(-570deg); } }
+  @keyframes orbit9 { 0% { transform: rotate(240deg) translateX(126px) rotate(-240deg); } 100% { transform: rotate(600deg) translateX(126px) rotate(-600deg); } }
+  @keyframes orbit10 { 0% { transform: rotate(270deg) translateX(129px) rotate(-270deg); } 100% { transform: rotate(630deg) translateX(129px) rotate(-630deg); } }
+  @keyframes orbit11 { 0% { transform: rotate(300deg) translateX(131px) rotate(-300deg); } 100% { transform: rotate(660deg) translateX(131px) rotate(-660deg); } }
+  @keyframes orbit12 { 0% { transform: rotate(330deg) translateX(133px) rotate(-330deg); } 100% { transform: rotate(690deg) translateX(133px) rotate(-690deg); } }
 }
 
 @media (max-width: 576px) {
@@ -470,4 +744,39 @@
   .scroll-indicator {
     display: none;
   }
+
+  .tech-showcase {
+    width: 250px;
+    height: 250px;
+    
+    &::before {
+      width: 160px;
+      height: 160px;
+    }
+
+    &::after {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  .floating-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  // Further reduce orbital radius on mobile
+  @keyframes orbit1 { 0% { transform: rotate(0deg) translateX(90px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(90px) rotate(-360deg); } }
+  @keyframes orbit2 { 0% { transform: rotate(30deg) translateX(95px) rotate(-30deg); } 100% { transform: rotate(390deg) translateX(95px) rotate(-390deg); } }
+  @keyframes orbit3 { 0% { transform: rotate(60deg) translateX(100px) rotate(-60deg); } 100% { transform: rotate(420deg) translateX(100px) rotate(-420deg); } }
+  @keyframes orbit4 { 0% { transform: rotate(90deg) translateX(92px) rotate(-90deg); } 100% { transform: rotate(450deg) translateX(92px) rotate(-450deg); } }
+  @keyframes orbit5 { 0% { transform: rotate(120deg) translateX(94px) rotate(-120deg); } 100% { transform: rotate(480deg) translateX(94px) rotate(-480deg); } }
+  @keyframes orbit6 { 0% { transform: rotate(150deg) translateX(96px) rotate(-150deg); } 100% { transform: rotate(510deg) translateX(96px) rotate(-510deg); } }
+  @keyframes orbit7 { 0% { transform: rotate(180deg) translateX(98px) rotate(-180deg); } 100% { transform: rotate(540deg) translateX(98px) rotate(-540deg); } }
+  @keyframes orbit8 { 0% { transform: rotate(210deg) translateX(97px) rotate(-210deg); } 100% { transform: rotate(570deg) translateX(97px) rotate(-570deg); } }
+  @keyframes orbit9 { 0% { transform: rotate(240deg) translateX(93px) rotate(-240deg); } 100% { transform: rotate(600deg) translateX(93px) rotate(-600deg); } }
+  @keyframes orbit10 { 0% { transform: rotate(270deg) translateX(95px) rotate(-270deg); } 100% { transform: rotate(630deg) translateX(95px) rotate(-630deg); } }
+  @keyframes orbit11 { 0% { transform: rotate(300deg) translateX(91px) rotate(-300deg); } 100% { transform: rotate(660deg) translateX(91px) rotate(-660deg); } }
+  @keyframes orbit12 { 0% { transform: rotate(330deg) translateX(99px) rotate(-330deg); } 100% { transform: rotate(690deg) translateX(99px) rotate(-690deg); } }
 }
