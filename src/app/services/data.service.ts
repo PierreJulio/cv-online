@@ -81,7 +81,7 @@ export class DataService {
     location: 'Labège, France',
     dateOfBirth: '2001-11-20',
     summary: 'Développeur Full-Stack passionné par les technologies web modernes et la sécurité IAM. Spécialisé en .NET Core, Blazor, React et Angular avec une expertise en solutions d\'authentification et d\'autorisation.',
-    profileImage: 'assets/images/pierre-julio-profile.jpg',
+    profileImage: '/assets/images/pierre-julio-profile.jpg',
     socialLinks: [
       { platform: 'LinkedIn', url: 'https://linkedin.com/in/pierre-julio', icon: 'fab fa-linkedin' },
       { platform: 'GitHub', url: 'https://github.com/pierre-julio', icon: 'fab fa-github' }
@@ -113,7 +113,7 @@ export class DataService {
       description: 'Conception et développement d\'applications web avec intégration d\'API et automatisation.',
       technologies: ['Blazor', '.NET Core', 'API REST', 'GitLab CI/CD'],
       achievements: [
-        'Conception et développement d\'une application de digitalisation d\'une pommeraie avec Blazor et .NET Core',
+        'Conception et développement du système Laundry Order System avec Angular et .NET Core',
         'Intégration d\'API REST et automatisation des traitements',
         'Implémentation de CI/CD sur GitLab pour le déploiement automatisé'
       ]
@@ -152,7 +152,7 @@ export class DataService {
       id: '1',
       title: 'Friend Ranking APP',
       description: 'Application de classement des amis sur différents paramètres avec interface utilisateur conviviale.',
-      image: 'assets/images/project-placeholder.svg',
+      image: '/assets/images/project-ranking.svg',
       technologies: ['React', 'Next.js', 'Firebase'],
       liveUrl: 'https://friend-ranking-app.vercel.app',
       githubUrl: 'https://github.com/pierre-julio/friend-ranking',
@@ -167,8 +167,8 @@ export class DataService {
       id: '2',
       title: 'Pactify',
       description: 'Application de gestion des engagements avec support multi-participants et chat en temps réel.',
-      image: 'assets/images/project-placeholder.svg',
-      technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+      image: '/assets/images/project-pactify.svg',
+      technologies: ['Flutter', 'Firebase'],
       liveUrl: 'https://pactify-kappa.vercel.app/',
       githubUrl: 'https://github.com/pierre-julio/pactify',
       features: [
@@ -180,15 +180,17 @@ export class DataService {
     },
     {
       id: '3',
-      title: 'Application Digitalisation Pommeraie',
-      description: 'Application développée en alternance pour la digitalisation complète d\'une pommeraie.',
-      image: 'assets/images/project-placeholder.svg',
-      technologies: ['Blazor', '.NET Core', 'SQL Server', 'API REST'],
+      title: 'Laundry Order System',
+      description: 'Système de gestion de commandes pour pressing/laverie avec interface d\'administration complète.',
+      image: '/assets/images/project-laundry.svg',
+      technologies: ['Angular', '.NET Core', 'PrimeNG', 'Entity Framework'],
+      liveUrl: 'https://laundry-order-system.vercel.app/login',
+      githubUrl: 'https://github.com/PierreJulio/LaundryOrderSystem',
       features: [
-        'Gestion complète de la pommeraie',
-        'Intégration d\'API REST',
-        'Automatisation des traitements',
-        'Interface responsive'
+        'Gestion des commandes de pressing',
+        'Interface d\'administration',
+        'Système de statuts des commandes',
+        'Gestion des clients et services'
       ]
     }
   ]);

@@ -1,0 +1,75 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blazorBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#512bd4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e1e1e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blazorAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#68217a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#512bd4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="250" fill="url(#blazorBg)"/>
+  
+  <!-- Blazor logo-like shape -->
+  <g transform="translate(80, 80)">
+    <!-- Blazor flame -->
+    <path d="M0,80 Q20,60 40,80 Q60,40 80,80 Q60,100 40,80 Q20,100 0,80 Z" fill="url(#blazorAccent)" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M10,70 Q25,55 35,70 Q50,40 65,70 Q50,85 35,70 Q25,85 10,70 Z" fill="#ff6b6b" opacity="0.6"/>
+    <path d="M20,65 Q30,50 40,65 Q50,45 60,65 Q50,80 40,65 Q30,80 20,65 Z" fill="#ffd93d" opacity="0.7"/>
+  </g>
+  
+  <!-- Desktop application mockup -->
+  <rect x="200" y="40" width="180" height="120" rx="5" fill="rgba(255,255,255,0.95)" stroke="#512bd4" stroke-width="2"/>
+  
+  <!-- Window header -->
+  <rect x="200" y="40" width="180" height="25" rx="5" fill="url(#blazorAccent)"/>
+  <circle cx="215" cy="52.5" r="3" fill="rgba(255,255,255,0.8)"/>
+  <circle cx="225" cy="52.5" r="3" fill="rgba(255,255,255,0.6)"/>
+  <circle cx="235" cy="52.5" r="3" fill="rgba(255,255,255,0.4)"/>
+  <text x="290" y="57" font-family="Arial" font-size="10" fill="white" text-anchor="middle">Pommeraie Management</text>
+  
+  <!-- Application content -->
+  <rect x="210" y="75" width="160" height="15" rx="3" fill="#512bd4" opacity="0.7"/>
+  <text x="290" y="85" font-family="Arial" font-size="8" fill="white" text-anchor="middle">Gestion des Arbres</text>
+  
+  <!-- Data table mockup -->
+  <rect x="210" y="95" width="50" height="50" rx="3" fill="rgba(81, 43, 212, 0.1)" stroke="#512bd4" stroke-width="1"/>
+  <text x="235" y="105" font-family="Arial" font-size="7" fill="#512bd4" text-anchor="middle">Arbre #1</text>
+  <text x="235" y="115" font-family="Arial" font-size="6" fill="#666" text-anchor="middle">Pommes: 150</text>
+  <text x="235" y="125" font-family="Arial" font-size="6" fill="#666" text-anchor="middle">État: Bon</text>
+  <text x="235" y="135" font-family="Arial" font-size="6" fill="#666" text-anchor="middle">Récolte: Oct</text>
+  
+  <rect x="270" y="95" width="50" height="50" rx="3" fill="rgba(81, 43, 212, 0.1)" stroke="#512bd4" stroke-width="1"/>
+  <text x="295" y="105" font-family="Arial" font-size="7" fill="#512bd4" text-anchor="middle">Arbre #2</text>
+  <text x="295" y="115" font-family="Arial" font-size="6" fill="#666" text-anchor="middle">Pommes: 200</text>
+  <text x="295" y="125" font-family="Arial" font-size="6" fill="#666" text-anchor="middle">État: Excellent</text>
+  <text x="295" y="135" font-family="Arial" font-size="6" fill="#666" text-anchor="middle">Récolte: Nov</text>
+  
+  <!-- Tech stack -->
+  <text x="50" y="180" font-family="Arial" font-size="14" font-weight="bold" fill="white">Technologies</text>
+  <text x="50" y="200" font-family="Arial" font-size="11" fill="#512bd4">🔥 Blazor</text>
+  <text x="50" y="215" font-family="Arial" font-size="11" fill="#512bd4">⚙️ .NET Core</text>
+  <text x="50" y="230" font-family="Arial" font-size="11" fill="#512bd4">💾 SQL Server</text>
+  
+  <text x="200" y="200" font-family="Arial" font-size="11" fill="#512bd4">🌐 API REST</text>
+  <text x="200" y="215" font-family="Arial" font-size="11" fill="#512bd4">🔄 CI/CD</text>
+  <text x="200" y="230" font-family="Arial" font-size="11" fill="#512bd4">📊 Analytics</text>
+  
+  <!-- Floating C# code elements -->
+  <text x="300" y="180" font-family="monospace" font-size="9" fill="rgba(81, 43, 212, 0.6)">@page "/trees"</text>
+  <text x="300" y="195" font-family="monospace" font-size="9" fill="rgba(81, 43, 212, 0.6)">@inject Service</text>
+  <text x="300" y="210" font-family="monospace" font-size="9" fill="rgba(81, 43, 212, 0.6)">@code { ... }</text>
+  
+  <!-- Animated particles -->
+  <circle cx="120" cy="40" r="2" fill="rgba(81, 43, 212, 0.5)">
+    <animate attributeName="cy" values="40;60;40" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="350" cy="180" r="2" fill="rgba(81, 43, 212, 0.5)">
+    <animate attributeName="cy" values="180;200;180" dur="5s" repeatCount="indefinite"/>
+  </circle>
+</svg>

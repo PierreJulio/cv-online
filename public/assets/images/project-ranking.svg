@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="reactGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#61dafb"/>
+      <stop offset="100%" style="stop-color:#21a9c7"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  
+  <!-- React Logo -->
+  <g transform="translate(200, 150)">
+    <!-- Electron paths -->
+    <ellipse cx="0" cy="0" rx="60" ry="20" fill="none" stroke="url(#reactGrad)" stroke-width="3"/>
+    <ellipse cx="0" cy="0" rx="60" ry="20" fill="none" stroke="url(#reactGrad)" stroke-width="3" transform="rotate(60)"/>
+    <ellipse cx="0" cy="0" rx="60" ry="20" fill="none" stroke="url(#reactGrad)" stroke-width="3" transform="rotate(-60)"/>
+    
+    <!-- Core -->
+    <circle cx="0" cy="0" r="8" fill="url(#reactGrad)"/>
+    
+    <!-- Electrons -->
+    <circle cx="60" cy="0" r="4" fill="url(#reactGrad)"/>
+    <circle cx="-30" cy="52" r="4" fill="url(#reactGrad)"/>
+    <circle cx="-30" cy="-52" r="4" fill="url(#reactGrad)"/>
+  </g>
+  
+  <!-- Project Title -->
+  <text x="200" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">Friend Ranking APP</text>
+  <text x="200" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">React • Next.js • Firebase</text>
+</svg>

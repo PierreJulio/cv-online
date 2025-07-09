@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="laundryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="washingMachine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e5e7eb"/>
+      <stop offset="100%" style="stop-color:#9ca3af"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  
+  <!-- Washing Machine -->
+  <g transform="translate(200, 150)">
+    <!-- Machine body -->
+    <rect x="-60" y="-50" width="120" height="100" rx="10" fill="url(#washingMachine)" stroke="#6b7280" stroke-width="2"/>
+    
+    <!-- Door -->
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#374151" stroke-width="3"/>
+    <circle cx="0" cy="0" r="30" fill="rgba(79, 70, 229, 0.1)"/>
+    
+    <!-- Control panel -->
+    <rect x="-50" y="-40" width="100" height="15" rx="3" fill="#374151"/>
+    <circle cx="-30" cy="-32" r="3" fill="url(#laundryGrad)"/>
+    <circle cx="-10" cy="-32" r="3" fill="#ef4444"/>
+    <circle cx="10" cy="-32" r="3" fill="#22c55e"/>
+    <circle cx="30" cy="-32" r="3" fill="#f59e0b"/>
+    
+    <!-- Water bubbles -->
+    <circle cx="-15" cy="-5" r="4" fill="rgba(6, 182, 212, 0.6)"/>
+    <circle cx="20" cy="10" r="3" fill="rgba(6, 182, 212, 0.4)"/>
+    <circle cx="-10" cy="15" r="2" fill="rgba(6, 182, 212, 0.5)"/>
+    <circle cx="15" cy="-10" r="2" fill="rgba(6, 182, 212, 0.3)"/>
+  </g>
+  
+  <!-- Decorative elements -->
+  <rect x="80" y="60" width="8" height="8" rx="2" fill="url(#laundryGrad)" opacity="0.6"/>
+  <rect x="320" y="80" width="6" height="6" rx="1" fill="#06b6d4" opacity="0.7"/>
+  <circle cx="100" cy="220" r="5" fill="url(#laundryGrad)" opacity="0.5"/>
+  <circle cx="300" cy="200" r="4" fill="#06b6d4" opacity="0.6"/>
+  
+  <!-- Project Title -->
+  <text x="200" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">Laundry Order System</text>
+  <text x="200" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">Angular • .NET Core • PrimeNG • Entity Framework</text>
+</svg>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="flutterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#02569B"/>
+      <stop offset="100%" style="stop-color:#0175C2"/>
+    </linearGradient>
+    <linearGradient id="firebaseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFA000"/>
+      <stop offset="100%" style="stop-color:#FF6F00"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  
+  <!-- Flutter Logo -->
+  <g transform="translate(200, 150)">
+    <!-- Flutter bird/wing shape -->
+    <path d="M-30,-30 L30,30 L0,30 L-30,0 Z" fill="url(#flutterGrad)"/>
+    <path d="M-30,0 L30,60 L0,60 L-30,30 Z" fill="url(#flutterGrad)" opacity="0.7"/>
+    
+    <!-- Center dot -->
+    <circle cx="0" cy="30" r="8" fill="url(#firebaseGrad)"/>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="120" cy="80" r="6" fill="#02569B" opacity="0.6"/>
+  <circle cx="280" cy="80" r="8" fill="#FFA000" opacity="0.5"/>
+  <circle cx="100" cy="220" r="7" fill="#0175C2" opacity="0.7"/>
+  <circle cx="300" cy="220" r="5" fill="#FF6F00" opacity="0.6"/>
+  
+  <!-- Project Title -->
+  <text x="200" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">Pactify</text>
+  <text x="200" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">Flutter • Firebase</text>
+</svg>
