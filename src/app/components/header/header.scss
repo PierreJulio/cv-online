@@ -135,49 +135,57 @@
 // Mobile Navigation Toggle
 .navbar-toggler {
   border: none;
-  padding: 0.25rem 0.5rem;
+  padding: 0;
   background: transparent;
   position: relative;
   width: 40px;
   height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 8px; // Espacement depuis le bord droit
   
   &:focus {
     box-shadow: none;
+    outline: none;
   }
 
-  .navbar-toggler-icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 18px;
-    position: relative;
-
-    span {
-      display: block;
-      width: 100%;
-      height: 2px;
-      background: var(--text-primary);
-      border-radius: 1px;
-      transition: all 0.3s ease;
-      transform-origin: center;
+  span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 1px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: absolute; // Position absolue pour superposer les spans
+    
+    &:nth-child(1) {
+      transform: translateY(-4px);
+    }
+    
+    &:nth-child(2) {
+      transform: translateY(0);
+    }
+    
+    &:nth-child(3) {
+      transform: translateY(4px);
     }
   }
 
   &.active {
-    .navbar-toggler-icon {
-      span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-      }
-      
-      span:nth-child(2) {
-        opacity: 0;
-        transform: scale(0);
-      }
-      
-      span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-      }
+    span:nth-child(1) {
+      transform: translateY(0) rotate(45deg); // Même position + rotation
+    }
+    
+    span:nth-child(2) {
+      opacity: 0;
+      transform: scale(0) rotate(180deg);
+    }
+    
+    span:nth-child(3) {
+      transform: translateY(0) rotate(-45deg); // Même position + rotation
     }
   }
 }

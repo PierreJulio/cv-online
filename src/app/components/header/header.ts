@@ -88,7 +88,7 @@ export class Header implements OnInit, OnDestroy {
 
   async exportToPdf(): Promise<void> {
     try {
-      await this.pdfExportService.exportToPdf();
+      await this.pdfExportService.exportATSCV('Pierre_JULIO_CV.pdf');
     } catch (error) {
       console.error('Error exporting PDF:', error);
     }

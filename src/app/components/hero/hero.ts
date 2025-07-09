@@ -65,7 +65,7 @@ export class Hero implements OnInit, OnDestroy {
 
   async downloadCV(): Promise<void> {
     try {
-      await this.pdfExportService.exportToPdf('cv-app', 'Pierre_JULIO_CV.pdf');
+      await this.pdfExportService.exportATSCV('Pierre_JULIO_CV.pdf');
     } catch (error) {
       console.error('Error downloading CV:', error);
     }
