@@ -53,7 +53,7 @@ export class App implements OnInit, OnDestroy {
   aboutDetails: AboutDetail[] = [];
   skillCategories: SkillCategory[] = [];
   showBackToTop = false;
-  isLoading = true;
+  isLoading = false; // Désactivé pour éviter les problèmes
 
   constructor(
     private dataService: DataService,
@@ -84,21 +84,20 @@ export class App implements OnInit, OnDestroy {
     // Load languages
     this.dataService.getLanguages()
       .pipe(takeUntil(this.destroy$))
-      .subscribe(languages => this.languages = languages);
+      .subscribe(languages => {
+        this.languages = languages;
+      });
 
     // Load skills for categories
     this.dataService.getSkills()
       .pipe(takeUntil(this.destroy$))
       .subscribe(skills => {
         this.skillCategories = [
-          { key: 'frontend', skills: skills.filter(s => s.category === 'Frontend') },
-          { key: 'backend', skills: skills.filter(s => s.category === 'Backend') },
-          { key: 'tools', skills: skills.filter(s => s.category === 'Tools') }
+          { key: 'frontend', skills: skills.filter((s: any) => s.category === 'Frontend') },
+          { key: 'backend', skills: skills.filter((s: any) => s.category === 'Backend') },
+          { key: 'tools', skills: skills.filter((s: any) => s.category === 'Tools') }
         ];
       });
-
-    // Set loading to false after a delay
-    setTimeout(() => this.isLoading = false, 1000);
   }
 
   private setupAboutDetails(): void {
