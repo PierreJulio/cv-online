@@ -461,6 +461,13 @@
     color: var(--primary-color);
     animation: float 4s ease-in-out infinite 5.5s, orbit12 21s linear infinite;
   }
+
+  &.icon-13 {
+    top: 60%;
+    right: 25%;
+    color: #512bd4; // Blazor purple color
+    animation: float 4s ease-in-out infinite 6s, orbit13 23s linear infinite;
+  }
 }
 
 .scroll-indicator {
@@ -644,6 +651,11 @@
   100% { transform: rotate(690deg) translateX(168px) rotate(-690deg); }
 }
 
+@keyframes orbit13 {
+  0% { transform: rotate(360deg) translateX(172px) rotate(-360deg); }
+  100% { transform: rotate(720deg) translateX(172px) rotate(-720deg); }
+}
+
 // Responsive Design
 @media (max-width: 991px) {
   .hero {
@@ -730,6 +742,7 @@
   @keyframes orbit10 { 0% { transform: rotate(270deg) translateX(129px) rotate(-270deg); } 100% { transform: rotate(630deg) translateX(129px) rotate(-630deg); } }
   @keyframes orbit11 { 0% { transform: rotate(300deg) translateX(131px) rotate(-300deg); } 100% { transform: rotate(660deg) translateX(131px) rotate(-660deg); } }
   @keyframes orbit12 { 0% { transform: rotate(330deg) translateX(133px) rotate(-330deg); } 100% { transform: rotate(690deg) translateX(133px) rotate(-690deg); } }
+  @keyframes orbit13 { 0% { transform: rotate(360deg) translateX(137px) rotate(-360deg); } 100% { transform: rotate(720deg) translateX(137px) rotate(-720deg); } }
 }
 
 @media (max-width: 576px) {
@@ -779,4 +792,5 @@
   @keyframes orbit10 { 0% { transform: rotate(270deg) translateX(95px) rotate(-270deg); } 100% { transform: rotate(630deg) translateX(95px) rotate(-630deg); } }
   @keyframes orbit11 { 0% { transform: rotate(300deg) translateX(91px) rotate(-300deg); } 100% { transform: rotate(660deg) translateX(91px) rotate(-660deg); } }
   @keyframes orbit12 { 0% { transform: rotate(330deg) translateX(99px) rotate(-330deg); } 100% { transform: rotate(690deg) translateX(99px) rotate(-690deg); } }
+  @keyframes orbit13 { 0% { transform: rotate(360deg) translateX(101px) rotate(-360deg); } 100% { transform: rotate(720deg) translateX(101px) rotate(-720deg); } }
 }
