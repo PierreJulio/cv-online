@@ -213,7 +213,7 @@ export class DataService {
     // Sécurité & IAM
     { name: 'OAuth', level: 80, category: 'Backend', icon: 'fas fa-shield-alt' },
     { name: 'OpenID Connect', level: 85, category: 'Backend', icon: 'fas fa-key' },
-    { name: 'SAML', level: 50, category: 'Backend', icon: 'fas fa-lock' },
+    { name: 'SAML', level: 85, category: 'Backend', icon: 'fas fa-lock' },
     { name: 'JWT', level: 100, category: 'Backend', icon: 'fas fa-certificate' },
 
     // Outils & Technologies
