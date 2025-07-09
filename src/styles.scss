@@ -1,7 +1,7 @@
 /* Global Styles for CV Online Application */
 
 // Bootstrap Import
-@import 'bootstrap/scss/bootstrap';
+@use 'bootstrap/scss/bootstrap';
 
 // Font Awesome Import
 @import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -374,7 +374,7 @@ a {
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
-    color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
   
   .no-print {
