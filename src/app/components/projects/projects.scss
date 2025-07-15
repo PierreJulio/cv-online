@@ -31,9 +31,14 @@
     }
   }
 
-  :host-context(.dark-theme) & {
-    background: var(--bg-secondary);
-    border-color: var(--border-light);
+  [data-theme="dark"] & {
+    background: var(--dark-card);
+    border-color: var(--dark-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    }
   }
 }
 
@@ -50,8 +55,8 @@
     transition: transform 0.3s ease;
   }
 
-  :host-context(.dark-theme) & {
-    background: var(--bg-dark);
+  [data-theme="dark"] & {
+    background: var(--dark-bg);
   }
 }
 
@@ -99,6 +104,18 @@
       &:hover {
         background: var(--secondary-color);
         border-color: var(--secondary-color);
+      }
+    }
+
+    &.btn-outline {
+      background: transparent;
+      border-color: white;
+      color: white;
+
+      &:hover {
+        background: #333333;
+        border-color: #333333;
+        color: white;
       }
     }
   }
@@ -216,11 +233,19 @@
       background: var(--primary-color);
       color: white;
       transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    :host-context(.dark-theme) & {
-      background: var(--bg-dark);
-      border-color: var(--border-light);
+    [data-theme="dark"] & {
+      background: var(--dark-card);
+      color: var(--dark-text-secondary);
+      border-color: var(--dark-border);
+
+      &:hover {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
     }
   }
 }
@@ -231,6 +256,10 @@
   margin-top: auto;
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
+
+  [data-theme="dark"] & {
+    border-top-color: var(--dark-border);
+  }
 
   .project-link {
     display: flex;
@@ -262,14 +291,22 @@
       border: 1px solid var(--border-color);
 
       &:hover {
-        background: var(--text-primary);
+        background: #333333;
         color: white;
         transform: translateY(-2px);
+        border-color: #333333;
       }
 
-      :host-context(.dark-theme) & {
-        background: var(--bg-dark);
-        border-color: var(--border-light);
+      [data-theme="dark"] & {
+        background: var(--dark-card);
+        color: var(--dark-text-secondary);
+        border-color: var(--dark-border);
+
+        &:hover {
+          background: #4b5563;
+          color: white;
+          border-color: #4b5563;
+        }
       }
     }
   }
@@ -294,6 +331,16 @@
 
   i {
     margin-right: 0.5rem;
+  }
+
+  [data-theme="dark"] & {
+    border-color: var(--dark-border);
+    color: var(--dark-text-secondary);
+
+    &:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
   }
 }
 
