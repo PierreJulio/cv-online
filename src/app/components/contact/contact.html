@@ -99,6 +99,7 @@
               class="form-control"
               [(ngModel)]="contactForm.name"
               required
+              (blur)="onFieldTouch('name')"
               [class.is-invalid]="getFieldError('name')"
               placeholder="Votre nom complet">
             <div class="invalid-feedback" *ngIf="getFieldError('name')">
@@ -115,6 +116,7 @@
               class="form-control"
               [(ngModel)]="contactForm.email"
               required
+              (blur)="onFieldTouch('email')"
               [class.is-invalid]="getFieldError('email')"
               placeholder="votre.email@exemple.com">
             <div class="invalid-feedback" *ngIf="getFieldError('email')">
@@ -131,6 +133,7 @@
               class="form-control"
               [(ngModel)]="contactForm.subject"
               required
+              (blur)="onFieldTouch('subject')"
               [class.is-invalid]="getFieldError('subject')"
               placeholder="Sujet de votre message">
             <div class="invalid-feedback" *ngIf="getFieldError('subject')">
@@ -147,6 +150,7 @@
               rows="5"
               [(ngModel)]="contactForm.message"
               required
+              (blur)="onFieldTouch('message')"
               [class.is-invalid]="getFieldError('message')"
               placeholder="Votre message..."></textarea>
             <div class="invalid-feedback" *ngIf="getFieldError('message')">

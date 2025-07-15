@@ -26,6 +26,8 @@ export class Contact implements OnInit, OnDestroy {
   submitSuccess = false;
   submitError = '';
   contactInfo: any = null;
+  formSubmitted = false;
+  touchedFields: { [key: string]: boolean } = {};
 
   constructor(
     private contactService: ContactService,
@@ -50,6 +52,8 @@ export class Contact implements OnInit, OnDestroy {
   }
 
   async onSubmit(): Promise<void> {
+    this.formSubmitted = true;
+    
     if (!this.isValidForm()) {
       return;
     }
@@ -86,6 +90,8 @@ export class Contact implements OnInit, OnDestroy {
       subject: '',
       message: ''
     };
+    this.formSubmitted = false;
+    this.touchedFields = {};
   }
 
   downloadVCard(): void {
@@ -101,6 +107,11 @@ export class Contact implements OnInit, OnDestroy {
   }
 
   getFieldError(field: string): string {
+    // Ne montrer les erreurs que si le champ a été touché ou si le formulaire a été soumis
+    if (!this.touchedFields[field] && !this.formSubmitted) {
+      return '';
+    }
+
     switch (field) {
       case 'name':
         return !this.contactForm.name.trim() ? this.translate('contact.nameRequired') : '';
@@ -115,5 +126,9 @@ export class Contact implements OnInit, OnDestroy {
       default:
         return '';
     }
+  }
+
+  onFieldTouch(field: string): void {
+    this.touchedFields[field] = true;
   }
 }
