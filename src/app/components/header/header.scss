@@ -147,6 +147,11 @@
   margin-left: auto;
   margin-right: 8px; // Espacement depuis le bord droit
   
+  // Masquer sur desktop (écrans >= 992px)
+  @media (min-width: 992px) {
+    display: none !important;
+  }
+  
   &:focus {
     box-shadow: none;
     outline: none;
@@ -192,6 +197,31 @@
 
 // Mobile Navigation Collapse
 .navbar-collapse {
+  // Sur desktop (écrans >= 992px), toujours visible
+  @media (min-width: 992px) {
+    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    
+    .navbar-nav {
+      flex-direction: row;
+      margin-bottom: 0;
+      gap: 1rem;
+    }
+
+    .navbar-actions {
+      border-top: none;
+      padding-top: 0;
+    }
+  }
+
+  // Sur mobile (écrans < 992px)
   @media (max-width: 991px) {
     position: absolute;
     top: 100%;
@@ -206,9 +236,10 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    display: block;
 
-    :host-context(.dark-theme) & {
-      background: var(--bg-secondary);
+    [data-theme="dark"] & {
+      background: var(--dark-card);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
@@ -233,6 +264,10 @@
       justify-content: center;
       border-top: 1px solid var(--border-color);
       padding-top: 1rem;
+
+      [data-theme="dark"] & {
+        border-top-color: var(--dark-border);
+      }
     }
   }
 }
