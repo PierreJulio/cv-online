@@ -697,7 +697,7 @@
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
-    padding: 80px 0 40px;
+    padding: 100px 0 40px; // Augmenté de 80px à 100px pour mobile
   }
 
   .hero-text {
@@ -747,7 +747,7 @@
 
 @media (max-width: 576px) {
   .hero {
-    padding: 60px 0 30px;
+    padding: 80px 0 30px; // Augmenté de 60px à 80px pour très petit mobile
   }
 
   .hero-buttons {
@@ -793,4 +793,57 @@
   @keyframes orbit11 { 0% { transform: rotate(300deg) translateX(91px) rotate(-300deg); } 100% { transform: rotate(660deg) translateX(91px) rotate(-660deg); } }
   @keyframes orbit12 { 0% { transform: rotate(330deg) translateX(99px) rotate(-330deg); } 100% { transform: rotate(690deg) translateX(99px) rotate(-690deg); } }
   @keyframes orbit13 { 0% { transform: rotate(360deg) translateX(101px) rotate(-360deg); } 100% { transform: rotate(720deg) translateX(101px) rotate(-720deg); } }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 90px 0 30px; // Encore plus d'espace pour très petits écrans
+  }
+
+  .hero-text {
+    .hero-greeting {
+      font-size: 1.1rem;
+      margin-bottom: 0.375rem;
+    }
+
+    .hero-name {
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+
+    .hero-title {
+      font-size: 1.3rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-description {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  }
+
+  .tech-showcase {
+    width: 220px;
+    height: 220px;
+    
+    &::before {
+      width: 140px;
+      height: 140px;
+    }
+
+    &::after {
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  .floating-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
 }
