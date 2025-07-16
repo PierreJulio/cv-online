@@ -6,9 +6,9 @@
     <p class="section-subtitle">{{ translate('contact.subtitle') }}</p>
   </div>
 
-  <div class="row">
+  <div class="row contact-row">
     <!-- Contact Information -->
-    <div class="col-lg-6">
+    <div class="col-lg-6 order-lg-1 order-2">
       <div class="contact-info">
         <h3 class="contact-info-title">{{ translate('contact.getInTouch') }}</h3>
         <p class="contact-description">{{ translate('contact.description') }}</p>
@@ -87,7 +87,7 @@
     </div>
 
     <!-- Contact Form -->
-    <div class="col-lg-6">
+    <div class="col-lg-6 order-lg-2 order-1">
       <div class="contact-form">
         <form (ngSubmit)="onSubmit()" #contactFormRef="ngForm">
           <div class="form-group">
