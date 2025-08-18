@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 
 import { DataService, Skill } from '../../services/data.service';
-import { TranslationService } from '../../services/translation.service';
 
 interface SkillCategory {
   key: string;
@@ -23,8 +22,7 @@ export class Skills implements OnInit, OnDestroy {
   skillCategories: SkillCategory[] = [];
 
   constructor(
-    private dataService: DataService,
-    private translationService: TranslationService
+    private dataService: DataService
   ) {}
 
   ngOnInit(): void {
@@ -52,24 +50,20 @@ export class Skills implements OnInit, OnDestroy {
     this.skillCategories = [
       {
         key: 'frontend',
-        title: this.translate('skills.frontend'),
+        title: 'Frontend',
         skills: frontendSkills
       },
       {
         key: 'backend',
-        title: this.translate('skills.backend'),
+        title: 'Backend',
         skills: backendSkills
       },
       {
         key: 'tools',
-        title: this.translate('skills.tools'),
+        title: 'Outils',
         skills: toolsSkills
       }
     ];
-  }
-
-  translate(key: string): string {
-    return this.translationService.translate(key);
   }
 
   getSkillLevelText(level: number): string {

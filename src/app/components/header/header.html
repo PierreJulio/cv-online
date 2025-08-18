@@ -27,41 +27,22 @@
             class="nav-link" 
             [href]="item.href"
             (click)="navigateTo(item.href)">
-            {{ translate('nav.' + item.key) }}
+            {{ item.label }}
           </a>
         </li>
       </ul>
 
       <!-- Action buttons -->
       <div class="navbar-actions">
-        <!-- Language toggle -->
-        <button 
-          class="btn btn-outline action-btn"
-          (click)="toggleLanguage()"
-          [title]="translate('header.language')"
-          aria-label="Toggle language">
-          <i class="fas fa-globe"></i>
-          <span class="ms-1">{{ currentLanguage.toUpperCase() }}</span>
-        </button>
-
         <!-- Theme toggle -->
         <button 
           class="btn btn-outline action-btn"
           (click)="toggleTheme()"
-          [title]="translate('header.theme')"
+          [title]="'Changer le thème'"
           aria-label="Toggle theme">
           <i class="fas" [class.fa-moon]="!isDarkTheme" [class.fa-sun]="isDarkTheme"></i>
         </button>
 
-        <!-- PDF Export -->
-        <button 
-          class="btn btn-primary action-btn"
-          (click)="exportToPdf()"
-          [title]="translate('header.export')"
-          aria-label="Export to PDF">
-          <i class="fas fa-download"></i>
-          <span class="d-none d-md-inline ms-1">PDF</span>
-        </button>
       </div>
     </div>
   </div>

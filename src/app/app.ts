@@ -14,7 +14,6 @@ import { Footer } from './components/footer/footer';
 
 // Import services
 import { DataService, PersonalInfo, Language, Skill } from './services/data.service';
-import { TranslationService } from './services/translation.service';
 import { ThemeService } from './services/theme.service';
 
 interface AboutDetail {
@@ -57,7 +56,6 @@ export class App implements OnInit, OnDestroy {
 
   constructor(
     private dataService: DataService,
-    private translationService: TranslationService,
     private themeService: ThemeService,
     @Inject(DOCUMENT) private document: Document
   ) {}
@@ -137,6 +135,7 @@ export class App implements OnInit, OnDestroy {
   }
 
   translate(key: string): string {
-    return this.translationService.translate(key);
+    // Méthode maintenue pour compatibilité, retourne la clé directement
+    return key;
   }
 }

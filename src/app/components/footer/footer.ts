@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 
 import { DataService, PersonalInfo } from '../../services/data.service';
-import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-footer',
@@ -18,17 +17,16 @@ export class Footer implements OnInit, OnDestroy {
   currentYear = new Date().getFullYear();
 
   quickLinks = [
-    { key: 'home', href: '#home' },
-    { key: 'about', href: '#about' },
-    { key: 'experience', href: '#experience' },
-    { key: 'skills', href: '#skills' },
-    { key: 'projects', href: '#projects' },
-    { key: 'contact', href: '#contact' }
+    { key: 'home', href: '#home', label: 'Accueil' },
+    { key: 'about', href: '#about', label: 'À propos' },
+    { key: 'experience', href: '#experience', label: 'Expérience' },
+    { key: 'skills', href: '#skills', label: 'Compétences' },
+    { key: 'projects', href: '#projects', label: 'Projets' },
+    { key: 'contact', href: '#contact', label: 'Contact' }
   ];
 
   constructor(
-    private dataService: DataService,
-    private translationService: TranslationService
+    private dataService: DataService
   ) {}
 
   ngOnInit(): void {
@@ -57,9 +55,5 @@ export class Footer implements OnInit, OnDestroy {
 
   openSocialLink(url: string): void {
     window.open(url, '_blank');
-  }
-
-  translate(key: string): string {
-    return this.translationService.translate(key);
   }
 }

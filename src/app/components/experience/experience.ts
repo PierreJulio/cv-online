@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 
 import { DataService, Experience as ExperienceInterface } from '../../services/data.service';
-import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-experience',
@@ -17,8 +16,7 @@ export class Experience implements OnInit, OnDestroy {
   experiences: ExperienceInterface[] = [];
 
   constructor(
-    private dataService: DataService,
-    private translationService: TranslationService
+    private dataService: DataService
   ) {}
 
   ngOnInit(): void {
@@ -38,10 +36,6 @@ export class Experience implements OnInit, OnDestroy {
       });
   }
 
-  translate(key: string): string {
-    return this.translationService.translate(key);
-  }
-
   formatDate(dateString: string): string {
     const date = new Date(dateString + '-01');
     return date.toLocaleDateString('fr-FR', { 
@@ -51,6 +45,6 @@ export class Experience implements OnInit, OnDestroy {
   }
 
   getCurrentText(): string {
-    return this.translate('experience.current');
+    return 'Actuel';
   }
 }

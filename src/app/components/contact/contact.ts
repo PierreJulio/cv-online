@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 
 import { ContactService, ContactForm } from '../../services/contact.service';
-import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-contact',
@@ -30,8 +29,7 @@ export class Contact implements OnInit, OnDestroy {
   touchedFields: { [key: string]: boolean } = {};
 
   constructor(
-    private contactService: ContactService,
-    private translationService: TranslationService
+    private contactService: ContactService
   ) {}
 
   ngOnInit(): void {
@@ -69,7 +67,7 @@ export class Contact implements OnInit, OnDestroy {
         this.resetForm();
       }
     } catch (error: any) {
-      this.submitError = error.message || this.translate('contact.error');
+      this.submitError = error.message || 'Une erreur est survenue lors de l\'envoi du message';
     } finally {
       this.isSubmitting = false;
     }
@@ -102,10 +100,6 @@ export class Contact implements OnInit, OnDestroy {
     window.open(url, '_blank');
   }
 
-  translate(key: string): string {
-    return this.translationService.translate(key);
-  }
-
   getFieldError(field: string): string {
     // Ne montrer les erreurs que si le champ a été touché ou si le formulaire a été soumis
     if (!this.touchedFields[field] && !this.formSubmitted) {
@@ -114,15 +108,15 @@ export class Contact implements OnInit, OnDestroy {
 
     switch (field) {
       case 'name':
-        return !this.contactForm.name.trim() ? this.translate('contact.nameRequired') : '';
+        return !this.contactForm.name.trim() ? 'Le nom est requis' : '';
       case 'email':
-        if (!this.contactForm.email.trim()) return this.translate('contact.emailRequired');
-        if (!this.contactService.validateEmail(this.contactForm.email)) return this.translate('contact.emailInvalid');
+        if (!this.contactForm.email.trim()) return 'L\'email est requis';
+        if (!this.contactService.validateEmail(this.contactForm.email)) return 'L\'email n\'est pas valide';
         return '';
       case 'subject':
-        return !this.contactForm.subject.trim() ? this.translate('contact.subjectRequired') : '';
+        return !this.contactForm.subject.trim() ? 'Le sujet est requis' : '';
       case 'message':
-        return !this.contactForm.message.trim() ? this.translate('contact.messageRequired') : '';
+        return !this.contactForm.message.trim() ? 'Le message est requis' : '';
       default:
         return '';
     }

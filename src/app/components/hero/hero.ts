@@ -4,8 +4,6 @@ import { Subject, takeUntil } from 'rxjs';
 
 // Import services
 import { DataService, PersonalInfo } from '../../services/data.service';
-import { TranslationService } from '../../services/translation.service';
-import { PdfExportService } from '../../services/pdf-export.service';
 
 @Component({
   selector: 'app-hero',
@@ -22,8 +20,6 @@ export class Hero implements OnInit, OnDestroy {
 
   constructor(
     private dataService: DataService,
-    private translationService: TranslationService,
-    private pdfExportService: PdfExportService,
     @Inject(DOCUMENT) private document: Document
   ) {}
 
@@ -63,15 +59,8 @@ export class Hero implements OnInit, OnDestroy {
     }
   }
 
-  async downloadCV(): Promise<void> {
-    try {
-      await this.pdfExportService.exportATSCV('Pierre_JULIO_CV.pdf');
-    } catch (error) {
-      console.error('Error downloading CV:', error);
-    }
-  }
-
   translate(key: string): string {
-    return this.translationService.translate(key);
+    // Méthode maintenue pour compatibilité, retourne la clé directement
+    return key;
   }
 }

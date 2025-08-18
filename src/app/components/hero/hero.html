@@ -1,15 +1,14 @@
-<!-- Hero Section -->
-<section class="hero" id="hero">
+<section class="hero">
   <div class="container">
     <div class="row align-items-center">
       <!-- Hero Content -->
       <div class="col-lg-6">
         <div class="hero-content">
           <div class="hero-text">
-            <span class="hero-greeting">{{ translate('hero.greeting') }}</span>
+            <span class="hero-greeting">Salut, je suis</span>
             <h1 class="hero-name" *ngIf="personalInfo">{{ personalInfo.firstName }} {{ personalInfo.lastName }}</h1>
-            <h2 class="hero-title">{{ translate('hero.title') }}</h2>
-            <p class="hero-subtitle">{{ translate('hero.subtitle') }}</p>
+            <h2 class="hero-title">Développeur Full Stack</h2>
+            <p class="hero-subtitle">Passionné par les technologies web modernes</p>
             <p class="hero-description" *ngIf="personalInfo">{{ personalInfo.summary }}</p>
           </div>
 
@@ -17,11 +16,11 @@
           <div class="hero-stats">
             <div class="stat-item">
               <span class="stat-number">{{ yearsOfExperience }}+</span>
-              <span class="stat-label">{{ translate('hero.yearsExperience') }}</span>
+              <span class="stat-label">années d'expérience</span>
             </div>
             <div class="stat-item">
               <span class="stat-number">{{ projectsCompleted }}+</span>
-              <span class="stat-label">{{ translate('hero.projectsCompleted') }}</span>
+              <span class="stat-label">projets réalisés</span>
             </div>
           </div>
 
@@ -29,11 +28,7 @@
           <div class="hero-buttons">
             <button class="btn btn-primary" (click)="scrollToContact()">
               <i class="fas fa-envelope"></i>
-              {{ translate('hero.contactMe') }}
-            </button>
-            <button class="btn btn-outline" (click)="downloadCV()">
-              <i class="fas fa-download"></i>
-              {{ translate('hero.downloadCV') }}
+              Me contacter
             </button>
           </div>
         </div>
@@ -101,7 +96,7 @@
 
   <!-- Scroll Indicator -->
   <div class="scroll-indicator">
-    <span class="scroll-text">{{ translate('hero.scrollDown') }}</span>
+    <span class="scroll-text">Défiler vers le bas</span>
     <div class="scroll-arrow">
       <i class="fas fa-chevron-down"></i>
     </div>

@@ -2,8 +2,6 @@ import { Component, OnInit, OnDestroy, HostListener, Inject } from '@angular/cor
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 import { ThemeService } from '../../services/theme.service';
-import { TranslationService } from '../../services/translation.service';
-import { PdfExportService } from '../../services/pdf-export.service';
 
 @Component({
   selector: 'app-header',
@@ -17,21 +15,18 @@ export class Header implements OnInit, OnDestroy {
   isScrolled = false;
   isMobileMenuOpen = false;
   isDarkTheme = false;
-  currentLanguage = 'fr';
 
   navigationItems = [
-    { key: 'home', href: '#home' },
-    { key: 'about', href: '#about' },
-    { key: 'experience', href: '#experience' },
-    { key: 'skills', href: '#skills' },
-    { key: 'projects', href: '#projects' },
-    { key: 'contact', href: '#contact' }
+    { key: 'home', href: '#home', label: 'Accueil' },
+    { key: 'about', href: '#about', label: 'À propos' },
+    { key: 'experience', href: '#experience', label: 'Expérience' },
+    { key: 'skills', href: '#skills', label: 'Compétences' },
+    { key: 'projects', href: '#projects', label: 'Projets' },
+    { key: 'contact', href: '#contact', label: 'Contact' }
   ];
 
   constructor(
     private themeService: ThemeService,
-    private translationService: TranslationService,
-    private pdfExportService: PdfExportService,
     @Inject(DOCUMENT) private document: Document
   ) {}
 
@@ -40,11 +35,6 @@ export class Header implements OnInit, OnDestroy {
     this.themeService.isDarkTheme$
       .pipe(takeUntil(this.destroy$))
       .subscribe(isDark => this.isDarkTheme = isDark);
-
-    // Subscribe to language changes
-    this.translationService.currentLanguage$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(lang => this.currentLanguage = lang);
   }
 
   ngOnDestroy(): void {
@@ -73,11 +63,6 @@ export class Header implements OnInit, OnDestroy {
     this.themeService.toggleTheme();
   }
 
-  toggleLanguage(): void {
-    const newLang = this.currentLanguage === 'fr' ? 'en' : 'fr';
-    this.translationService.setLanguage(newLang);
-  }
-
   navigateTo(href: string): void {
     const element = this.document.querySelector(href);
     if (element) {
@@ -86,15 +71,8 @@ export class Header implements OnInit, OnDestroy {
     }
   }
 
-  async exportToPdf(): Promise<void> {
-    try {
-      await this.pdfExportService.exportATSCV('Pierre_JULIO_CV.pdf');
-    } catch (error) {
-      console.error('Error exporting PDF:', error);
-    }
-  }
-
   translate(key: string): string {
-    return this.translationService.translate(key);
+    // Méthode maintenue pour compatibilité, retourne la clé directement
+    return key;
   }
 }

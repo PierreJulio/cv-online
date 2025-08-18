@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 
 import { DataService, Project } from '../../services/data.service';
-import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-projects',
@@ -20,8 +19,7 @@ export class Projects implements OnInit, OnDestroy {
   projectsToShow = 3;
 
   constructor(
-    private dataService: DataService,
-    private translationService: TranslationService
+    private dataService: DataService
   ) {}
 
   ngOnInit(): void {
@@ -59,9 +57,5 @@ export class Projects implements OnInit, OnDestroy {
     if (url) {
       window.open(url, '_blank');
     }
-  }
-
-  translate(key: string): string {
-    return this.translationService.translate(key);
   }
 }

@@ -1,9 +1,8 @@
-<!-- Projects Section -->
 <div class="container">
   <div class="section-header">
-    <h2 class="section-title">{{ translate('projects.title') }}</h2>
+    <h2 class="section-title">Projets</h2>
     <div class="section-line"></div>
-    <p class="section-subtitle">{{ translate('projects.subtitle') }}</p>
+    <p class="section-subtitle">Mes réalisations</p>
   </div>
 
   <div class="projects-grid">
@@ -20,14 +19,14 @@
                   *ngIf="project.liveUrl" 
                   class="btn btn-primary btn-sm"
                   (click)="openLink(project.liveUrl)"
-                  [title]="translate('projects.viewLive')">
+                  [title]="'Voir en direct'">>
                   <i class="fas fa-external-link-alt"></i>
                 </button>
                 <button 
                   *ngIf="project.githubUrl" 
                   class="btn btn-outline btn-sm"
                   (click)="openLink(project.githubUrl)"
-                  [title]="translate('projects.viewCode')">
+                  [title]="'Voir le code'">>
                   <i class="fab fa-github"></i>
                 </button>
               </div>
@@ -38,8 +37,8 @@
             <h3 class="project-title">{{ project.title }}</h3>
             <p class="project-description">{{ project.description }}</p>
             
-            <div class="project-features" *ngIf="project.features.length > 0">
-              <h4 class="features-title">{{ translate('projects.features') }}</h4>
+            <div class="project-features" *ngIf="project.features && project.features.length > 0">
+              <h4 class="features-title">Fonctionnalités</h4>
               <ul class="features-list">
                 <li *ngFor="let feature of project.features" class="feature-item">
                   <i class="fas fa-check feature-icon"></i>
@@ -49,7 +48,7 @@
             </div>
             
             <div class="project-technologies" *ngIf="project.technologies.length > 0">
-              <h4 class="technologies-title">{{ translate('projects.technologies') }}</h4>
+              <h4 class="technologies-title">Technologies</h4>
               <div class="technologies-list">
                 <span 
                   *ngFor="let tech of project.technologies" 
@@ -66,7 +65,7 @@
                 target="_blank" 
                 class="project-link live-link">
                 <i class="fas fa-external-link-alt"></i>
-                {{ translate('projects.viewLive') }}
+                Voir en direct
               </a>
               <a 
                 *ngIf="project.githubUrl" 
@@ -74,7 +73,7 @@
                 target="_blank" 
                 class="project-link code-link">
                 <i class="fab fa-github"></i>
-                {{ translate('projects.viewCode') }}
+                Voir le code
               </a>
             </div>
           </div>
@@ -89,7 +88,7 @@
       class="btn btn-outline btn-lg load-more-btn"
       (click)="toggleProjects()">
       <i class="fas" [class.fa-chevron-down]="!showAllProjects" [class.fa-chevron-up]="showAllProjects"></i>
-      {{ showAllProjects ? 'Voir moins' : translate('projects.loadMore') }}
+      {{ showAllProjects ? 'Voir moins' : 'Voir plus' }}
     </button>
   </div>
 </div>

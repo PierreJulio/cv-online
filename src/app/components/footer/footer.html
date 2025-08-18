@@ -7,11 +7,11 @@
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="footer-section">
             <h3 class="footer-title" *ngIf="personalInfo">{{ personalInfo.firstName }} {{ personalInfo.lastName }}</h3>
-            <p class="footer-description">{{ translate('footer.description') }}</p>
+            <p class="footer-description">Développeur Full-Stack passionné par les technologies web modernes</p>
             
             <!-- Social Links -->
             <div class="footer-social" *ngIf="personalInfo?.socialLinks">
-              <h4 class="social-title">{{ translate('footer.social') }}</h4>
+              <h4 class="social-title">Suivez-moi</h4>
               <div class="social-links">
                 <a 
                   *ngFor="let social of personalInfo!.socialLinks"
@@ -29,11 +29,11 @@
         <!-- Quick Links -->
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="footer-section">
-            <h4 class="footer-subtitle">{{ translate('footer.quickLinks') }}</h4>
+            <h4 class="footer-subtitle">Liens rapides</h4>
             <ul class="footer-links">
               <li *ngFor="let link of quickLinks">
                 <a [href]="link.href" (click)="scrollToSection(link.href)">
-                  {{ translate('nav.' + link.key) }}
+                  {{ link.label }}
                 </a>
               </li>
             </ul>
@@ -43,7 +43,7 @@
         <!-- Contact Info -->
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="footer-section">
-            <h4 class="footer-subtitle">{{ translate('footer.contact') }}</h4>
+            <h4 class="footer-subtitle">Contact</h4>
             <div class="contact-info" *ngIf="personalInfo">
               <div class="contact-item">
                 <i class="fas fa-envelope"></i>
@@ -84,14 +84,14 @@
         <div class="col-md-6">
           <p class="copyright">
             © {{ currentYear }} {{ personalInfo?.firstName || 'Pierre' }} {{ personalInfo?.lastName || 'JULIO' }}. 
-            {{ translate('footer.rights') }}
+            Tous droits réservés
           </p>
         </div>
         <div class="col-md-6 text-md-end">
           <p class="made-with">
-            {{ translate('footer.madeWith') }} 
+            Conçu avec 
             <i class="fas fa-heart heart-icon"></i> 
-            {{ translate('footer.and') }} 
+            et 
             <span class="tech-highlight">Angular</span>
           </p>
         </div>
