@@ -125,7 +125,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -376,13 +376,15 @@
   font-size: 1.1rem;
   font-weight: 600;
   border-radius: var(--border-radius);
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background: var(--primary-color);
   border: none;
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover:not(:disabled) {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(var(--primary-color-rgb), 0.3);
   }

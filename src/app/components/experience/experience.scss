@@ -41,7 +41,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  background: var(--primary-color);
   border: 3px solid var(--bg-primary);
   box-shadow: 0 0 0 3px var(--primary-color);
   z-index: 2;
@@ -57,7 +57,7 @@
   width: 2px;
   height: 100%;
   min-height: 80px;
-  background: linear-gradient(to bottom, var(--primary-color), var(--border-color));
+  background: var(--border-color);
   margin-top: 1rem;
 }
 
@@ -83,7 +83,7 @@
     left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: var(--primary-color);
   }
 
   &:hover {
