@@ -125,12 +125,14 @@ export class DataService {
         position: 'Développeur Full-Stack Web & IAM',
         startDate: '2023-09',
         endDate: null,
-        description: 'Développement d\'applications web et participation à des projets IAM pour la sécurisation des applications.',
-        technologies: ['Blazor .NET Core', 'SQL Server SSMS', 'OAuth', 'OpenID Connect', 'SAML', 'WordPress', 'Elementor'],
+        description: 'Développement d\'applications web et participation à des projets IAM pour la sécurisation des applications. Travail full-stack incluant du développement frontend avec Angular et backend Java/Spring pour des microservices.',
+        technologies: ['Blazor .NET Core', 'Angular', 'TypeScript', 'Java', 'Spring Boot', 'Hibernate', 'SQL Server SSMS', 'OAuth', 'OpenID Connect', 'SAML', 'WordPress'],
         achievements: [
           'Développement d\'applications IAM pour Airbus',
           'Intégration OAuth et SAML',
-          'Gestion de bases de données SQL Server',
+          'Conception et développement de composants frontend réutilisables avec Angular',
+          'Conception et déploiement de microservices backend en Java (Spring Boot) avec optimisation des accès BD',
+          'Gestion de bases de données SQL Server et modélisation de données',
           'Création de sites WordPress'
         ]
       },
