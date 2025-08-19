@@ -252,14 +252,15 @@ export class DataService {
   // Skills Data
   getSkills(): Observable<Skill[]> {
     return new BehaviorSubject<Skill[]>([
-      { name: '.NET Core', level: 90, category: 'Backend', icon: 'fab fa-microsoft' },
-      { name: 'Blazor', level: 85, category: 'Frontend', icon: 'fas fa-fire' },
-      { name: 'Angular', level: 80, category: 'Frontend', icon: 'fab fa-angular' },
-      { name: 'React', level: 75, category: 'Frontend', icon: 'fab fa-react' },
-      { name: 'TypeScript', level: 85, category: 'Language', icon: 'fab fa-js-square' },
-      { name: 'C#', level: 90, category: 'Language', icon: 'fas fa-code' },
-      { name: 'SQL Server', level: 80, category: 'Database', icon: 'fas fa-database' },
-      { name: 'OAuth/OIDC', level: 75, category: 'Security', icon: 'fas fa-shield-alt' }
+      { name: '.NET Core', level: 95, category: 'Backend', icon: 'fab fa-microsoft' },
+      { name: 'Node.js', level: 80, category: 'Backend', icon: 'fab fa-node' },
+      { name: 'Express', level: 75, category: 'Backend', icon: 'fab fa-node' },
+      { name: 'Java Spring Boot', level: 90, category: 'Backend', icon: 'fab fa-java' },
+      { name: 'Blazor', level: 95, category: 'Frontend', icon: 'fas fa-fire' },
+      { name: 'Angular', level: 90, category: 'Frontend', icon: 'fab fa-angular' },
+      { name: 'React', level: 50, category: 'Frontend', icon: 'fab fa-react' },      
+      { name: 'Git', level: 80, category: 'Tools', icon: 'fab fa-git' },
+      { name: 'Docker', level: 70, category: 'Tools', icon: 'fab fa-docker'},
     ]).asObservable();
   }
 
@@ -299,8 +300,7 @@ export class DataService {
   getLanguages(): Observable<Language[]> {
     return new BehaviorSubject<Language[]>([
       { name: 'Français', level: 'Natif', proficiency: 100 },
-      { name: 'Anglais', level: 'Courant', proficiency: 85 },
-      { name: 'Espagnol', level: 'Débutant', proficiency: 30 }
+      { name: 'Anglais', level: 'Intermédiaire', proficiency: 40 },
     ]).asObservable();
   }
 }

@@ -1,11 +1,53 @@
-// Main App Styles
+// Main App Styles - SCROLL SMOOTH SIMPLE ✨
 .cv-app {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 
   &.loading {
     overflow: hidden;
+  }
+}
+
+// Smooth scroll pour tout le document
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+// Chaque section fait la hauteur de l'écran
+section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transition: all 0.6s ease-in-out;
+  
+  // Animation au scroll
+  &:nth-child(even) {
+    background: var(--bg-light);
+  }
+  
+  &:nth-child(odd) {
+    background: var(--bg-primary);
+  }
+  
+  // Effet de parallax subtil
+  .container {
+    transition: transform 0.6s ease-out;
+  }
+  
+  &.in-view .container {
+    transform: translateY(0);
+    animation: smoothFadeIn 0.8s ease-out;
+  }
+  
+  &:not(.in-view) .container {
+    transform: translateY(20px);
+    opacity: 0.8;
   }
 }
 
@@ -303,6 +345,21 @@
 
 .slide-up {
   animation: slideUp 0.8s ease-out;
+}
+
+// ==========================================
+// SCROLL SMOOTH ANIMATIONS SIMPLE 🚀✨
+// ==========================================
+
+@keyframes smoothFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes fadeIn {

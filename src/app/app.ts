@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, Inject, AfterViewInit } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
@@ -42,7 +42,7 @@ interface SkillCategory {
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App implements OnInit, OnDestroy {
+export class App implements OnInit, OnDestroy, AfterViewInit {
   protected title = 'cv-online';
   
   private destroy$ = new Subject<void>();
@@ -52,7 +52,7 @@ export class App implements OnInit, OnDestroy {
   aboutDetails: AboutDetail[] = [];
   skillCategories: SkillCategory[] = [];
   showBackToTop = false;
-  isLoading = false; // Désactivé pour éviter les problèmes
+  isLoading = false;
 
   constructor(
     private dataService: DataService,
@@ -62,7 +62,10 @@ export class App implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadData();
-    this.setupScrollListener();
+  }
+
+  ngAfterViewInit(): void {
+    this.setupScrollObserver();
   }
 
   ngOnDestroy(): void {
@@ -101,10 +104,10 @@ export class App implements OnInit, OnDestroy {
   private setupAboutDetails(): void {
     if (this.personalInfo) {
       this.aboutDetails = [
-        { label: this.translate('about.age'), value: this.calculateAge().toString() },
-        { label: this.translate('about.location'), value: this.personalInfo.location },
-        { label: this.translate('about.email'), value: this.personalInfo.email },
-        { label: this.translate('about.phone'), value: this.personalInfo.phone }
+        { label: 'Âge', value: this.calculateAge().toString() },
+        { label: 'Localisation', value: this.personalInfo.location },
+        { label: 'Email', value: this.personalInfo.email },
+        { label: 'Téléphone', value: this.personalInfo.phone }
       ];
     }
   }
@@ -121,13 +124,58 @@ export class App implements OnInit, OnDestroy {
     return age;
   }
 
+  private setupScrollObserver(): void {
+    // Guard: IntersectionObserver only available in browser (not on server)
+    if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') {
+      // Server-side rendering or older browser — skip observer
+      return;
+    }
+
+    // Observer simple pour les animations au scroll (navigateur uniquement)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add('in-view');
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    // Observer toutes les sections
+    const sections = Array.from(this.document.querySelectorAll('section')) as HTMLElement[];
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+    
+    // Fallback: si IntersectionObserver n'est pas supporté, utiliser un simple listener
+    // (très basique, exécuté seulement dans le navigateur)
+    if (typeof IntersectionObserver === 'undefined') {
+      const onScroll = () => {
+        const top = window.scrollY || window.pageYOffset;
+        const vh = window.innerHeight;
+        sections.forEach(sec => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top >= -vh * 0.25 && rect.top <= vh * 0.75) {
+            sec.classList.add('in-view');
+          } else {
+            sec.classList.remove('in-view');
+          }
+        });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      // run once
+      setTimeout(onScroll, 50);
+    }
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     this.showBackToTop = window.pageYOffset > 300;
-  }
-
-  private setupScrollListener(): void {
-    // Additional scroll setup if needed
   }
 
   scrollToTop(): void {
@@ -135,7 +183,6 @@ export class App implements OnInit, OnDestroy {
   }
 
   translate(key: string): string {
-    // Méthode maintenue pour compatibilité, retourne la clé directement
     return key;
   }
 }
