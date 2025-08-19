@@ -169,27 +169,27 @@ export class DataService {
     return [
       {
         id: '1',
-        title: 'Friend Ranking APP',
-        description: 'Application de classement des amis sur différents paramètres avec interface utilisateur conviviale.',
-        image: '/assets/images/project-ranking.svg',
-        technologies: ['React', 'Next.js', 'Firebase'],
-        liveUrl: 'https://friend-ranking-app.vercel.app',
-        githubUrl: 'https://github.com/pierre-julio/friend-ranking',
+        title: 'LingoPlay',
+        description: 'Une application Flutter Web similaire à Duolingo avec un système de matching de vocabulaire et des fonctionnalités multijoueur temps réel.',
+  image: '/assets/images/project-lingoplay-v2.svg',
+        technologies: ['Flutter', 'Dart', 'Firebase', 'WebRTC'],
+        liveUrl: 'https://lingoplay2.vercel.app/',
+        githubUrl: 'https://github.com/PierreJulio/LingoPlay',
         features: [
-          'Système de classement d\'amis',
-          'Interface React moderne',
-          'Base de données Firebase',
-          'Authentification utilisateur'
+          'Matching de vocabulaire adaptatif',
+          'Modes multijoueur temps réel',
+          'Progression et récompenses',
+          'Interface responsive pour le web'
         ]
       },
       {
         id: '2',
         title: 'CV Online',
         description: 'CV en ligne interactif avec mode sombre/clair et design responsive.',
-        image: '/assets/images/project-angular.svg',
+  image: '/assets/images/project-cv.svg',
         technologies: ['Angular', 'TypeScript', 'SCSS'],
         liveUrl: 'https://pierre-julio-cv.vercel.app',
-        githubUrl: 'https://github.com/pierre-julio/cv-online',
+        githubUrl: 'https://github.com/PierreJulio/cv-online',
         features: [
           'CV en ligne interactif',
           'Mode sombre/clair',
@@ -199,16 +199,17 @@ export class DataService {
       },
       {
         id: '3',
-        title: 'Portfolio Blazor',
-        description: 'Portfolio développé avec Blazor Server et .NET Core.',
-        image: '/assets/images/project-blazor.svg',
-        technologies: ['Blazor', '.NET Core', 'Bootstrap'],
-        githubUrl: 'https://github.com/pierre-julio/blazor-portfolio',
+        title: 'Friend Ranking APP',
+        description: 'Application de classement des amis sur différents paramètres avec interface utilisateur conviviale.',
+  image: '/assets/images/project-friend.svg',
+        technologies: ['React', 'Next.js', 'Firebase'],
+        liveUrl: 'https://friend-ranking-app.vercel.app',
+        githubUrl: 'https://github.com/PierreJulio/friend-ranking',
         features: [
-          'Portfolio Blazor Server',
-          'Composants réutilisables',
-          'Design Bootstrap',
-          'Architecture .NET Core'
+          'Système de classement d\'amis',
+          'Interface React moderne',
+          'Base de données Firebase',
+          'Authentification utilisateur'
         ]
       }
     ];

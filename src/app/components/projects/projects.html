@@ -13,20 +13,21 @@
         <div class="project-card" [style.animation-delay.s]="i * 0.1">
           <div class="project-image">
             <img [src]="project.image" [alt]="project.title" class="img-fluid">
+            <span *ngIf="project.title === 'LingoPlay'" class="project-badge">Nouveau</span>
             <div class="project-overlay">
               <div class="project-actions">
                 <button 
                   *ngIf="project.liveUrl" 
                   class="btn btn-primary btn-sm"
                   (click)="openLink(project.liveUrl)"
-                  [title]="'Voir en direct'">>
+                  [title]="'Voir en direct'">
                   <i class="fas fa-external-link-alt"></i>
                 </button>
                 <button 
                   *ngIf="project.githubUrl" 
                   class="btn btn-outline btn-sm"
                   (click)="openLink(project.githubUrl)"
-                  [title]="'Voir le code'">>
+                  [title]="'Voir le code'">
                   <i class="fab fa-github"></i>
                 </button>
               </div>

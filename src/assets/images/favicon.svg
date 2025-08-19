@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="title">
+  <title id="title">Pierre Julio - CV</title>
+  <rect width="64" height="64" rx="10" fill="#0f1724" />
+  <!-- Circle accent -->
+  <circle cx="44" cy="20" r="10" fill="#06b6d4" />
+  <!-- Monogram P -->
+  <path d="M18 44 L18 20 L30 20 C34 20 36 22 36 26 C36 30 34 32 30 32 L24 32 L24 44 Z" fill="#f8fafc"/>
+  <path d="M24 28 L30 28" stroke="#0f1724" stroke-width="2" stroke-linecap="round"/>
+</svg>
