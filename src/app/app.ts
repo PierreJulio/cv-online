@@ -28,6 +28,7 @@ interface SkillCategory {
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
     CommonModule,
     RouterOutlet,
@@ -40,7 +41,7 @@ interface SkillCategory {
     Footer
   ],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss']
 })
 export class App implements OnInit, OnDestroy, AfterViewInit {
   protected title = 'cv-online';
