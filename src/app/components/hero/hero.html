@@ -5,11 +5,11 @@
       <div class="col-lg-6">
         <div class="hero-content">
           <div class="hero-text">
-            <span class="hero-greeting">Salut, je suis</span>
+            <span class="hero-greeting">Bonjour, je suis</span>
             <h1 class="hero-name" *ngIf="personalInfo">{{ personalInfo.firstName }} {{ personalInfo.lastName }}</h1>
-            <h2 class="hero-title">Développeur Full Stack</h2>
-            <p class="hero-subtitle">Passionné par les technologies web modernes</p>
-            <p class="hero-description" *ngIf="personalInfo">{{ personalInfo.summary }}</p>
+            <h2 class="hero-title">Développeur Web & Mobile Spécialiste .NET, Angular</h2>
+            <p class="hero-subtitle">J'accompagne les entreprises dans la création d'applications performantes et sécurisées</p>
+            <p class="hero-description">De l'analyse de vos besoins au déploiement en production, je transforme vos idées en solutions digitales robustes et évolutives.</p>
           </div>
 
           <!-- Hero Stats -->
@@ -20,15 +20,23 @@
             </div>
             <div class="stat-item">
               <span class="stat-number">{{ projectsCompleted }}+</span>
-              <span class="stat-label">projets réalisés</span>
+              <span class="stat-label">projets livrés</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">clients satisfaits</span>
             </div>
           </div>
 
           <!-- Hero Buttons -->
           <div class="hero-buttons">
-            <button class="btn btn-primary" (click)="scrollToContact()">
-              <i class="fas fa-envelope"></i>
-              Me contacter
+            <a href="https://www.malt.fr/profile/pierrejulio" target="_blank" class="btn btn-primary">
+              <i class="fas fa-handshake"></i>
+              Travaillons ensemble
+            </a>
+            <button class="btn btn-outline" (click)="downloadCV()">
+              <i class="fas fa-download"></i>
+              Télécharger mon CV
             </button>
           </div>
         </div>

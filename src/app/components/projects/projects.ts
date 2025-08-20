@@ -15,8 +15,8 @@ export class Projects implements OnInit, OnDestroy {
   
   projects: Project[] = [];
   visibleProjects: Project[] = [];
-  showAllProjects = false;
-  projectsToShow = 3;
+  showAllProjects = true; // Afficher tous les projets par défaut
+  projectsToShow = 5; // Augmenté pour inclure tous les projets
 
   constructor(
     private dataService: DataService
@@ -56,6 +56,23 @@ export class Projects implements OnInit, OnDestroy {
   openLink(url: string | undefined): void {
     if (url) {
       window.open(url, '_blank');
+    }
+  }
+
+  requestMoreInfo(project: Project): void {
+    // Scroll to contact section with a pre-filled message about the project
+    const contactElement = document.querySelector('#contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+      
+      // Trigger an event or use a service to pre-fill contact form
+      setTimeout(() => {
+        const messageField = document.querySelector('#message') as HTMLTextAreaElement;
+        if (messageField) {
+          messageField.value = `Bonjour Pierre,\n\nJe souhaiterais en savoir plus sur votre projet "${project.title}". Pouvez-vous me fournir plus de détails ?\n\nCordialement,`;
+          messageField.focus();
+        }
+      }, 1000);
     }
   }
 }

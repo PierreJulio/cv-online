@@ -1,17 +1,48 @@
 <!-- Contact Section -->
 <div class="container">
   <div class="section-header">
-    <h2 class="section-title">Contact</h2>
+    <h2 class="section-title">Collaborons Ensemble</h2>
     <div class="section-line"></div>
-    <p class="section-subtitle">N'hésitez pas à me contacter</p>
+    <p class="section-subtitle">Transformons vos idées en solutions digitales performantes</p>
   </div>
 
   <div class="row contact-row">
     <!-- Contact Information -->
     <div class="col-lg-6 order-lg-1 order-2">
       <div class="contact-info">
-        <h3 class="contact-info-title">Prenons contact</h3>
-        <p class="contact-description">Je suis toujours intéressé par de nouveaux projets et opportunités</p>
+        <h3 class="contact-info-title">Démarrons votre projet</h3>
+        <p class="contact-description">Développeur freelance spécialisé en solutions web et mobile. Disponible pour vos projets d'entreprise.</p>
+        
+        <!-- Call to Action Cards -->
+        <div class="cta-cards">
+          <div class="cta-card primary">
+            <div class="cta-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <div class="cta-content">
+              <h4>Projet Freelance</h4>
+              <p>Discutons de votre besoin</p>
+              <a href="https://www.malt.fr/profile/pierrejulio" target="_blank" class="btn btn-primary btn-sm">
+                <i class="fas fa-external-link-alt"></i>
+                Voir mon profil Malt
+              </a>
+            </div>
+          </div>
+          
+          <div class="cta-card secondary">
+            <div class="cta-icon">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="cta-content">
+              <h4>CV Complet</h4>
+              <p>Téléchargez mon CV détaillé</p>
+              <button class="btn btn-outline btn-sm" (click)="downloadCV()">
+                <i class="fas fa-download"></i>
+                Télécharger PDF
+              </button>
+            </div>
+          </div>
+        </div>
         
         <div class="contact-details" *ngIf="contactInfo">
           <div class="contact-item">
@@ -19,8 +50,8 @@
               <i class="fas fa-envelope"></i>
             </div>
             <div class="contact-content">
-              <h4>Email</h4>
-              <a [href]="'mailto:' + contactInfo.email">{{ contactInfo.email }}</a>
+              <h4>Contact Direct</h4>
+              <a [href]="'mailto:' + contactInfo.email + '?subject=Projet%20Freelance%20-%20Collaboration'">{{ contactInfo.email }}</a>
             </div>
           </div>
 
@@ -29,7 +60,7 @@
               <i class="fas fa-phone"></i>
             </div>
             <div class="contact-content">
-              <h4>Téléphone</h4>
+              <h4>Appelez-moi</h4>
               <a [href]="'tel:' + contactInfo.phone">{{ contactInfo.phone }}</a>
             </div>
           </div>
@@ -40,11 +71,11 @@
             </div>
             <div class="contact-content">
               <h4>Localisation</h4>
-              <span>{{ contactInfo.location }}</span>
+              <span>{{ contactInfo.location }} • Remote possible</span>
             </div>
           </div>
 
-          <div class="contact-item" *ngIf="contactInfo.availability">
+          <div class="contact-item">
             <div class="contact-icon">
               <i class="fas fa-clock"></i>
             </div>

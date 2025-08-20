@@ -59,6 +59,14 @@ export class Hero implements OnInit, OnDestroy {
     }
   }
 
+  downloadCV(): void {
+    // Create a temporary link to download CV
+    const link = this.document.createElement('a');
+    link.href = '/assets/documents/Pierre_Julio_CV.pdf';
+    link.download = 'Pierre_Julio_CV.pdf';
+    link.click();
+  }
+
   translate(key: string): string {
     // Méthode maintenue pour compatibilité, retourne la clé directement
     return key;

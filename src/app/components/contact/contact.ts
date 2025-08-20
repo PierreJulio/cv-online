@@ -100,6 +100,14 @@ export class Contact implements OnInit, OnDestroy {
     window.open(url, '_blank');
   }
 
+  downloadCV(): void {
+    // Create a temporary link to download CV
+    const link = document.createElement('a');
+    link.href = '/assets/documents/Pierre_Julio_CV.pdf';
+    link.download = 'Pierre_Julio_CV.pdf';
+    link.click();
+  }
+
   getFieldError(field: string): string {
     // Ne montrer les erreurs que si le champ a été touché ou si le formulaire a été soumis
     if (!this.touchedFields[field] && !this.formSubmitted) {

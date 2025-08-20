@@ -1,34 +1,47 @@
 <div class="container">
   <div class="section-header">
-    <h2 class="section-title">Projets</h2>
+    <h2 class="section-title">Projets & Réalisations</h2>
     <div class="section-line"></div>
-    <p class="section-subtitle">Mes réalisations</p>
+    <p class="section-subtitle">Solutions développées pour maximiser la valeur business</p>
   </div>
 
   <div class="projects-grid">
     <div class="row">
       <div 
-        class="col-lg-4 col-md-6 mb-4" 
+        class="col-xl-4 col-lg-6 col-md-6 mb-4" 
         *ngFor="let project of visibleProjects; let i = index">
-        <div class="project-card" [style.animation-delay.s]="i * 0.1">
+        <div class="project-card business-card" [style.animation-delay.s]="i * 0.1">
           <div class="project-image">
             <img [src]="project.image" [alt]="project.title" class="img-fluid">
-            <span *ngIf="project.title === 'LingoPlay'" class="project-badge">Nouveau</span>
+            <span *ngIf="project.title.includes('LingoPlay')" class="project-badge">Innovation</span>
+            <span *ngIf="project.title.includes('Blanchisserie')" class="project-badge success">ROI +40%</span>
+            <span *ngIf="project.title.includes('Airbus')" class="project-badge enterprise">Enterprise</span>
+            <span *ngIf="project.title.includes('CV Online')" class="project-badge">Portfolio</span>
+            <span *ngIf="project.title.includes('Friend Ranking')" class="project-badge">Social</span>
             <div class="project-overlay">
               <div class="project-actions">
                 <button 
                   *ngIf="project.liveUrl" 
                   class="btn btn-primary btn-sm"
                   (click)="openLink(project.liveUrl)"
-                  [title]="'Voir en direct'">
+                  [title]="'Voir la démo'">
                   <i class="fas fa-external-link-alt"></i>
+                  <span>Démo</span>
                 </button>
                 <button 
                   *ngIf="project.githubUrl" 
                   class="btn btn-outline btn-sm"
                   (click)="openLink(project.githubUrl)"
-                  [title]="'Voir le code'">
+                  [title]="'Code source'">
                   <i class="fab fa-github"></i>
+                  <span>Code</span>
+                </button>
+                <button 
+                  class="btn btn-secondary btn-sm"
+                  (click)="requestMoreInfo(project)"
+                  [title]="'En savoir plus'">
+                  <i class="fas fa-info-circle"></i>
+                  <span>Détails</span>
                 </button>
               </div>
             </div>
@@ -39,10 +52,10 @@
             <p class="project-description">{{ project.description }}</p>
             
             <div class="project-features" *ngIf="project.features && project.features.length > 0">
-              <h4 class="features-title">Fonctionnalités</h4>
+              <h4 class="features-title">Impact & Fonctionnalités</h4>
               <ul class="features-list">
                 <li *ngFor="let feature of project.features" class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
+                  <i class="fas fa-trophy feature-icon"></i>
                   {{ feature }}
                 </li>
               </ul>

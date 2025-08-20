@@ -1,0 +1,59 @@
+# Pierre JULIO - CV
+## Développeur Web & Mobile | Spécialiste .NET, Angular & Flutter
+
+### Contact
+- Email: pierre.julio2024@gmail.com
+- Téléphone: +33 7 82 14 12 85
+- LinkedIn: https://linkedin.com/in/pierre-julio
+- GitHub: https://github.com/pierre-julio
+- Localisation: Labège, France
+
+### Profil Professionnel
+Développeur Full-Stack passionné par les technologies web modernes et la sécurité IAM. Spécialisé en .NET Core, Blazor, React et Angular avec une expertise en solutions d'authentification et d'autorisation.
+
+### Expériences Professionnelles
+
+**Développeur Full-Stack Web & IAM** | Albarosa (Mission chez Airbus) | Sept 2023 - Présent
+- Développement d'applications IAM pour la sécurisation des applications Airbus
+- Intégration OAuth et SAML pour l'authentification unique
+- Conception de composants frontend réutilisables avec Angular
+- Développement de microservices backend en Java (Spring Boot)
+- Gestion de bases de données SQL Server et modélisation de données
+
+**Alternant - Développeur d'Applications Web** | Albarosa | Sept 2022 - Sept 2023  
+- Conception et développement d'applications web avec intégration d'API
+- Développement système de gestion de blanchisserie
+- Mise en place CI/CD GitLab
+
+### Projets Majeurs
+
+**LingoPlay - Plateforme d'Apprentissage Linguistique**
+- Plateforme interactive similaire à Duolingo avec système adaptatif
+- Technologies: Flutter, Dart, Firebase, WebRTC
+- Amélioration de l'engagement utilisateur de 70%
+
+**Système de Gestion Blanchisserie Industrielle**  
+- Solution complète avec automatisation des processus
+- Technologies: Blazor Server, .NET Core, SQL Server, SignalR
+- Réduction du temps d'analyse de 40%
+
+**Applications IAM Sécurisées pour Airbus**
+- Applications de gestion d'identité et d'accès
+- Technologies: Angular, Java Spring Boot, OAuth 2.0, SAML
+- Conformité aux standards de sécurité aéronautique
+
+### Compétences Techniques
+
+**Backend**: .NET Core, Java Spring Boot, Node.js, API REST, Microservices
+**Frontend**: Angular, React, Blazor, TypeScript, Flutter  
+**Bases de données**: SQL Server, Firebase, PostgreSQL
+**Sécurité**: OAuth 2.0, SAML, JWT, IAM
+**DevOps**: GitLab CI/CD, Docker, Azure
+**Outils**: Git, JIRA, Postman, Visual Studio
+
+### Formation
+- Formation développeur web et applications mobiles
+- Spécialisation en sécurité et IAM
+
+---
+*CV généré automatiquement depuis le site web: https://pierre-julio-cv.vercel.app*
